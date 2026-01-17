@@ -33,6 +33,7 @@
 
         .container {
             text-align: center;
+            width: 100%;
             max-width: 600px;
             animation: fadeIn 1.5s ease-out;
         }
@@ -85,15 +86,20 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 3.5rem;
             font-weight: 500;
-            line-height: 1.2;
+            line-height: 0.9;
             margin-bottom: 1.5rem;
             color: #90674D;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .ampersand {
+            font-size: 2.5rem;
             font-style: italic;
             font-weight: 400;
             color: #C99985;
+            line-height: 1;
         }
 
         .date {
@@ -143,6 +149,10 @@
                 font-size: 2.5rem;
             }
 
+            .ampersand {
+                font-size: 1.75rem;
+            }
+
             .date {
                 font-size: 1.5rem;
             }
@@ -169,7 +179,11 @@
 
         <p class="save-the-date">Save the Date</p>
 
-        <h1 class="names">Harry <span class="ampersand">&</span> Carolina</h1>
+        <h1 class="names">
+            <span>Harry</span>
+            <span class="ampersand">&</span>
+            <span>Carolina</span>
+        </h1>
 
         <p class="date">October 18th, 2026</p>
 
