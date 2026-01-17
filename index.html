@@ -6,7 +6,7 @@
     <title>Harry & Carolina - Save the Date</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,8 +19,8 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #F5E4C3;
+            font-family: 'Outfit', sans-serif;
+            background-color: #F9F0E1;
             color: #90674D;
             min-height: 100vh;
             display: flex;
@@ -36,6 +36,54 @@
             width: 100%;
             max-width: 600px;
             animation: fadeIn 1.5s ease-out;
+            padding: 2.5rem 2rem;
+            position: relative;
+        }
+
+        .background-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .blob-1 {
+            top: -10%;
+            right: -5%;
+            width: 45%;
+            max-width: 400px;
+            opacity: 0.5;
+        }
+
+        .blob-2 {
+            bottom: -15%;
+            left: -10%;
+            width: 50%;
+            max-width: 450px;
+            opacity: 0.4;
+        }
+
+        .blob-3 {
+            top: 30%;
+            left: -15%;
+            width: 30%;
+            max-width: 250px;
+            opacity: 0.3;
+        }
+
+        .blob-4 {
+            top: 12%;
+            left: -8%;
+            width: 20%;
+            max-width: 160px;
+            opacity: 0.35;
+        }
+
+        .blob-5 {
+            bottom: 20%;
+            right: -5%;
+            width: 20%;
+            max-width: 180px;
+            opacity: 0.3;
         }
 
         @keyframes fadeIn {
@@ -52,11 +100,12 @@
         .photo-frame {
             width: 220px;
             height: 220px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.75rem;
             border-radius: 50%;
             overflow: hidden;
             border: 6px solid #C99985;
             box-shadow: 0 8px 30px rgba(144, 103, 77, 0.2);
+            position: relative;
         }
 
         .photo-frame img {
@@ -65,29 +114,35 @@
             object-fit: cover;
         }
 
-        .decorative-element {
-            color: #A0A07D;
-            font-size: 1.5rem;
-            letter-spacing: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
         .save-the-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 400;
-            letter-spacing: 0.3rem;
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: 0.2rem;
             text-transform: uppercase;
-            color: #A0A07D;
-            margin-bottom: 1rem;
+            color: #90674D;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4em;
+        }
+
+        .save-the-date .the {
+            font-style: italic;
+            font-weight: 400;
+            text-transform: lowercase;
+            font-size: 0.6em;
+            letter-spacing: 0;
+            color: #C99985;
         }
 
         .names {
             font-family: 'Cormorant Garamond', serif;
             font-size: 3.5rem;
-            font-weight: 500;
-            line-height: 0.9;
-            margin-bottom: 1.5rem;
+            font-weight: 600;
+            line-height: 0.95;
+            margin-bottom: 1.25rem;
             color: #90674D;
             display: flex;
             flex-direction: column;
@@ -99,7 +154,11 @@
             font-style: italic;
             font-weight: 400;
             color: #C99985;
-            line-height: 1;
+            line-height: 0.9;
+        }
+
+        .names span:last-child {
+            margin-top: -0.15em;
         }
 
         .date {
@@ -111,26 +170,88 @@
         }
 
         .location {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 1rem;
             font-weight: 300;
             letter-spacing: 0.15rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
             color: #90674D;
         }
 
         .divider {
-            width: 60px;
-            height: 2px;
-            background-color: #A0A07D;
-            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0 auto 1.75rem;
+            color: #C99985;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background-color: #C99985;
         }
 
         .tagline {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.125rem;
-            color: #A0A07D;
+            font-size: 1.25rem;
+            color: #90674D;
+        }
+
+        .calendar-link {
+            display: inline-block;
+            margin-top: 1.25rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.05rem;
+            color: #F5E4C3;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            background-color: #C99985;
+            border-radius: 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-link:hover {
+            background-color: #90674D;
+        }
+
+        .lang-toggle {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            color: #90674D;
+            opacity: 0.6;
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            transition: opacity 0.2s ease;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .lang-toggle button:hover {
+            opacity: 0.8;
+        }
+
+        .lang-toggle button.active {
+            text-decoration: none;
+            font-weight: 500;
         }
 
         /* Responsive styles */
@@ -158,40 +279,116 @@
             }
 
             .save-the-date {
-                font-size: 1rem;
-                letter-spacing: 0.2rem;
+                font-size: 2rem;
+                letter-spacing: 0.15rem;
             }
 
-            .decorative-element {
-                font-size: 1.25rem;
-                letter-spacing: 0.3rem;
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .blob-1, .blob-2, .blob-3 {
+                opacity: 0.3;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Background blobs -->
+    <svg class="background-decoration blob-1" viewBox="0 0 200 200" aria-hidden="true">
+        <path d="M40,100 Q50,20 120,40 Q190,60 180,120 Q170,180 100,170 Q30,160 40,100"
+              fill="#A0A07D"/>
+    </svg>
+    <svg class="background-decoration blob-2" viewBox="0 0 200 200" aria-hidden="true">
+        <path d="M30,80 Q60,10 130,30 Q200,50 180,130 Q160,200 80,180 Q0,160 30,80"
+              fill="#C99985"/>
+    </svg>
+    <svg class="background-decoration blob-3" viewBox="0 0 200 200" aria-hidden="true">
+        <path d="M50,90 Q70,30 130,50 Q180,70 160,130 Q140,190 70,160 Q10,130 50,90"
+              fill="#A0A07D"/>
+    </svg>
+    <svg class="background-decoration blob-4" viewBox="0 0 200 200" aria-hidden="true">
+        <path d="M60,100 Q80,40 130,60 Q170,80 150,130 Q130,170 80,150 Q40,130 60,100"
+              fill="#C99985"/>
+    </svg>
+    <svg class="background-decoration blob-5" viewBox="0 0 200 200" aria-hidden="true">
+        <path d="M45,95 Q65,35 125,55 Q175,75 155,135 Q135,185 75,165 Q25,145 45,95"
+              fill="#A0A07D"/>
+    </svg>
+
     <main class="container">
+        <p class="save-the-date">Save <span class="the">the</span> Date</p>
+
         <div class="photo-frame">
-            <img src="SCR-20260117-klsz.png" alt="Harry and Carolina">
+            <img src="caroyharry.jpeg" alt="Harry and Carolina">
         </div>
 
-        <p class="decorative-element" aria-hidden="true">~ ~ ~</p>
-
-        <p class="save-the-date">Save the Date</p>
-
         <h1 class="names">
-            <span>Harry</span>
-            <span class="ampersand">&</span>
             <span>Carolina</span>
+            <span class="ampersand">&</span>
+            <span>Harry</span>
         </h1>
 
-        <p class="date">October 18th, 2026</p>
+        <p class="date" data-en="Sunday, October 18th, 2026" data-es="Domingo, 18 de octubre de 2026">Sunday, October 18th, 2026</p>
 
-        <p class="location">Near Madrid, Spain</p>
+        <p class="location" data-en="Madrid, Spain" data-es="Madrid, España">Madrid, Spain</p>
 
-        <div class="divider" aria-hidden="true"></div>
+        <div class="divider" aria-hidden="true">&#10022;</div>
 
-        <p class="tagline">Invitation to follow</p>
+        <p class="tagline" data-en="More details to follow" data-es="Pronto más detalles">More details to follow</p>
+
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Harry%20%26%20Carolina%27s%20Wedding&dates=20261018/20261019&details=Save%20the%20date%20for%20Harry%20and%20Carolina%27s%20wedding!&location=Madrid%2C%20Spain"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="calendar-link"
+           data-en="Click here to add to your calendar"
+           data-es="Haz clic aquí para añadirlo a tu calendario">
+            Click here to add to your calendar
+        </a>
+
+        <div class="lang-toggle">
+            <button class="active" data-lang="en">English</button>
+            <span>/</span>
+            <button data-lang="es">Español</button>
+        </div>
     </main>
+
+    <script>
+        function setLanguage(lang, updateUrl = false) {
+            // Update active button
+            document.querySelectorAll('.lang-toggle button').forEach(b => {
+                b.classList.toggle('active', b.dataset.lang === lang);
+            });
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerHTML = el.dataset[lang];
+            });
+
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+
+            // Update URL
+            if (updateUrl) {
+                const url = new URL(window.location);
+                if (lang === 'es') {
+                    url.searchParams.set('es', '');
+                } else {
+                    url.searchParams.delete('es');
+                }
+                window.history.replaceState({}, '', url);
+            }
+        }
+
+        // Check URL for ?es parameter
+        if (window.location.search.includes('es')) {
+            setLanguage('es');
+        }
+
+        // Handle toggle clicks
+        document.querySelectorAll('.lang-toggle button').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang, true));
+        });
+    </script>
 </body>
 </html>
