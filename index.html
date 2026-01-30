@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -1269,9 +1269,9 @@
             </a>
 
             <div class="lang-toggle">
-                <button class="active" data-lang="en">English</button>
+                <button data-lang="en">English</button>
                 <span>/</span>
-                <button data-lang="es">Español</button>
+                <button class="active" data-lang="es">Español</button>
             </div>
         </main>
 
@@ -1691,17 +1691,19 @@
             // Update URL
             if (updateUrl) {
                 const url = new URL(window.location);
-                if (lang === 'es') {
-                    url.searchParams.set('es', '');
+                if (lang === 'en') {
+                    url.searchParams.set('en', '');
                 } else {
-                    url.searchParams.delete('es');
+                    url.searchParams.delete('en');
                 }
                 window.history.replaceState({}, '', url);
             }
         }
 
-        // Check URL for ?es parameter
-        if (window.location.search.includes('es')) {
+        // Default to Spanish, check URL for ?en parameter for English
+        if (window.location.search.includes('en')) {
+            setLanguage('en');
+        } else {
             setLanguage('es');
         }
 
