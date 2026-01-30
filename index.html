@@ -795,47 +795,47 @@
             }
 
             .hotels-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
                 padding: 0 0.5rem;
-                gap: 0.8rem;
-                justify-content: center;
+                gap: 0.6rem;
             }
 
             .hotel-card {
-                width: 145px;
+                width: 100%;
             }
 
             .hotel-card-img {
-                height: 85px;
+                height: 80px;
             }
 
             .hotel-card-content {
-                padding: 0.6rem;
+                padding: 0.5rem;
             }
 
             .hotel-card-name {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .hotel-card-location {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
 
             .hotel-card-note {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
             .hotel-card-link {
-                font-size: 0.7rem;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .hotel-card {
-                width: 130px;
+                font-size: 0.65rem;
             }
 
-            .hotel-card-img {
-                height: 75px;
+            .hotel-category {
+                max-width: 100%;
+                padding: 0 0.5rem;
             }
         }
 
