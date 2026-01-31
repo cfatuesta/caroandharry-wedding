@@ -430,28 +430,32 @@
 
         .timeline {
             display: flex;
-            flex-direction: column;
-            gap: 0;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
             position: relative;
-            max-width: 400px;
+            max-width: 1000px;
             width: 100%;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 39px;
+            left: 10%;
+            right: 10%;
             top: 40px;
-            bottom: 40px;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, #C99985 10%, #C99985 90%, transparent);
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C99985 10%, #C99985 90%, transparent);
         }
 
         .timeline-item {
             display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.5rem 0;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            max-width: 180px;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease-out forwards;
@@ -476,6 +480,7 @@
             overflow: hidden;
             flex-shrink: 0;
             background-color: #E8E0D5;
+            margin-bottom: 1rem;
         }
 
         .timeline-icon img {
@@ -486,12 +491,12 @@
         }
 
         .timeline-content {
-            padding-top: 0.5rem;
+            padding-top: 0;
         }
 
         .timeline-time {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #6B4E3D;
             margin-bottom: 0.3rem;
@@ -499,15 +504,15 @@
 
         .timeline-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 500;
             color: #2e3a1f;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.2rem;
         }
 
         .timeline-desc {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-size: 1rem;
             color: #90674D;
             font-style: italic;
         }
@@ -519,19 +524,36 @@
 
             .venue-name {
                 font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .timeline {
+                gap: 0.5rem;
+                padding: 0 0.5rem;
             }
 
             .timeline::before {
-                left: 32px;
+                top: 30px;
+                left: 5%;
+                right: 5%;
+            }
+
+            .timeline-item {
+                max-width: none;
             }
 
             .timeline-icon {
-                width: 65px;
-                height: 65px;
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-time {
+                font-size: 0.75rem;
             }
 
             .timeline-title {
-                font-size: 1.5rem;
+                font-size: 0.9rem;
             }
         }
 
