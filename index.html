@@ -328,6 +328,59 @@
             }
         }
 
+        /* RSVP Hint */
+        .rsvp-hint {
+            position: fixed;
+            bottom: 5.5rem;
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 999;
+            animation: pulseHint 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .rsvp-hint-text {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(144, 103, 77, 0.15);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: #6B4E3D;
+            white-space: nowrap;
+        }
+
+        .rsvp-hint-arrow {
+            color: #C99985;
+            font-size: 1.5rem;
+            animation: bounceArrow 1s ease-in-out infinite;
+        }
+
+        @keyframes pulseHint {
+            0%, 100% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+
+        @media (max-width: 480px) {
+            .rsvp-hint {
+                bottom: 5rem;
+                right: 1.5rem;
+            }
+
+            .rsvp-hint-text {
+                font-size: 0.85rem;
+                padding: 0.5rem 0.8rem;
+            }
+        }
+
         /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
@@ -1162,6 +1215,12 @@
 
     <!-- RSVP Button -->
     <a href="https://forms.gle/YOUR_FORM_ID" target="_blank" rel="noopener noreferrer" class="rsvp-btn" data-en="RSVP" data-es="Confirmar">RSVP</a>
+
+    <!-- RSVP Hint -->
+    <div class="rsvp-hint">
+        <span class="rsvp-hint-text" data-en="Click here to confirm your attendance" data-es="Haz clic aquí para confirmar tu asistencia">Haz clic aquí para confirmar tu asistencia</span>
+        <span class="rsvp-hint-arrow">↓</span>
+    </div>
 
     <!-- Font Picker Overlay - DELETE THIS SECTION LATER -->
     <div class="font-picker" id="fontPicker" style="display: none;">
