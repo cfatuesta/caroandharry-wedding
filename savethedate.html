@@ -271,93 +271,6 @@
             box-shadow: 0 6px 20px rgba(74, 90, 58, 0.5);
         }
 
-        .sound-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(249, 240, 225, 0.85);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .sound-overlay-btn {
-            background: none;
-            border: 2px solid #C99985;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .sound-overlay-btn:hover {
-            background: rgba(201, 153, 133, 0.1);
-            transform: scale(1.05);
-        }
-
-        .sound-overlay-btn svg {
-            width: 36px;
-            height: 36px;
-            stroke: #5a4030;
-            fill: none;
-        }
-
-        .sound-overlay-btn span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.85rem;
-            color: #5a4030;
-            letter-spacing: 0.05em;
-        }
-
-        .sound-toggle {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            background: rgba(255, 255, 255, 0.7);
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(144, 103, 77, 0.15);
-        }
-
-        .sound-toggle:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: scale(1.05);
-        }
-
-        .sound-toggle svg {
-            width: 22px;
-            height: 22px;
-            stroke: #5a4030;
-            fill: none;
-        }
-
-        @media (max-width: 480px) {
-            .sound-toggle {
-                bottom: 1.5rem;
-                left: 1.5rem;
-                width: 42px;
-                height: 42px;
-            }
-        }
-
         /* Responsive styles */
         @media (max-width: 480px) {
             body {
@@ -422,32 +335,6 @@
     <!-- RSVP Button -->
     <a href="https://forms.gle/9eQ67WdH58e4ARca6" target="_blank" rel="noopener noreferrer" class="rsvp-btn" data-en="RSVP" data-es="RSVP">RSVP</a>
 
-    <!-- Sound Overlay -->
-    <div class="sound-overlay" id="soundOverlay">
-        <button class="sound-overlay-btn" id="soundOverlayBtn">
-            <svg viewBox="0 0 24 24" stroke-width="2">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-            </svg>
-            <span data-en="Tap for music" data-es="Toca para la música">Tap for music</span>
-        </button>
-    </div>
-
-    <!-- Sound Toggle (after dismissing overlay) -->
-    <button class="sound-toggle" id="soundToggle" style="display:none;" aria-label="Toggle sound">
-        <svg id="iconMuted" viewBox="0 0 24 24" stroke-width="2" style="display:none;">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-            <line x1="23" y1="9" x2="17" y2="15"/>
-            <line x1="17" y1="9" x2="23" y2="15"/>
-        </svg>
-        <svg id="iconUnmuted" viewBox="0 0 24 24" stroke-width="2">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-        </svg>
-    </button>
-
     <!-- Hero Section -->
     <section class="section" id="home">
         <main class="container">
@@ -510,30 +397,7 @@
             btn.addEventListener('click', () => setLanguage(btn.dataset.lang, true));
         });
 
-        // Video setup
-        const video = document.getElementById('bgVideo');
-        video.playbackRate = 0.85;
-        video.play().catch(function() {});
-
-        // Sound overlay — tap to unmute and start music
-        const overlay = document.getElementById('soundOverlay');
-        const soundBtn = document.getElementById('soundToggle');
-        const iconMuted = document.getElementById('iconMuted');
-        const iconUnmuted = document.getElementById('iconUnmuted');
-
-        document.getElementById('soundOverlayBtn').addEventListener('click', function() {
-            video.muted = false;
-            video.play();
-            overlay.style.display = 'none';
-            soundBtn.style.display = 'flex';
-        });
-
-        // Small toggle button to mute/unmute after overlay is dismissed
-        soundBtn.addEventListener('click', function() {
-            video.muted = !video.muted;
-            iconMuted.style.display = video.muted ? 'block' : 'none';
-            iconUnmuted.style.display = video.muted ? 'none' : 'block';
-        });
+        document.getElementById('bgVideo').playbackRate = 0.85;
 
         // Calendar link - opens two events: wedding + RSVP deadline
         document.getElementById('calendarLink').addEventListener('click', function(e) {
