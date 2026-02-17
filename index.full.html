@@ -82,7 +82,12 @@
             height: auto;
             transform: translate(-50%, -50%);
             z-index: -2;
-            opacity: 0.75;
+            opacity: 0;
+            transition: opacity 2.5s ease;
+        }
+
+        #bgVideo2 {
+            z-index: -1;
         }
 
         /* Light overlay to unify the look */
@@ -647,6 +652,97 @@
             .location-section h2 {
                 font-size: 2.2rem;
             }
+        }
+
+        /* Weather Section */
+        .weather-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #2e3a1f;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .weather-section .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #a07565;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(255,255,255,0.8);
+        }
+
+        .weather-stats {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .weather-stat {
+            background: rgba(255,255,255,0.7);
+            border-radius: 12px;
+            padding: 1.5rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(144,103,77,0.1);
+            min-width: 140px;
+            flex: 1;
+        }
+
+        .weather-stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .weather-stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2e3a1f;
+            line-height: 1;
+        }
+
+        .weather-stat-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: #5a4030;
+            margin-top: 0.3rem;
+            letter-spacing: 0.05em;
+        }
+
+        .weather-note {
+            background: rgba(255,255,255,0.7);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            max-width: 620px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(144,103,77,0.1);
+        }
+
+        .weather-note p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #5a4030;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .weather-note p + p {
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .weather-stats { gap: 0.8rem; }
+            .weather-stat { min-width: 110px; padding: 1rem 1rem; }
+            .weather-stat-value { font-size: 1.6rem; }
+            .weather-section h2 { font-size: 2.2rem; }
         }
 
         /* Accommodation Section */
@@ -1220,12 +1316,15 @@
 
 <body>
     <!-- Video Background -->
-    <video class="video-bg" autoplay muted loop playsinline id="bgVideo">
+    <video class="video-bg" autoplay muted playsinline id="bgVideo1">
         <source src="bg-video3.mp4" type="video/mp4">
+    </video>
+    <video class="video-bg" muted playsinline id="bgVideo2">
+        <source src="bg-video.mp4" type="video/mp4">
     </video>
 
     <!-- RSVP Button -->
-    <a href="https://forms.gle/9eQ67WdH58e4ARca6" target="_blank" rel="noopener noreferrer" class="rsvp-btn" data-en="RSVP" data-es="RSVP">RSVP</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScrLXZcdQJYAeHethT5oQe2v6ZfXYgeq5eu9yfZ6i-q-YSjnA/viewform?usp=preview" target="_blank" rel="noopener noreferrer" class="rsvp-btn" data-en="RSVP" data-es="RSVP">RSVP</a>
 
 
     <!-- Font Picker Overlay - DELETE THIS SECTION LATER -->
@@ -1324,6 +1423,7 @@
             <div class="date-location-block">
                 <p class="date" data-en="Sunday, October 18th, 2026" data-es="Domingo, 18 de octubre de 2026">Sunday,
                     October 18th, 2026</p>
+                <p class="location" style="font-size: 1.1rem; margin-bottom: 0.3rem;">Castillo de Batres</p>
                 <p class="location" data-en="Madrid, Spain" data-es="Madrid, España">Madrid, Spain</p>
             </div>
 
@@ -1410,7 +1510,7 @@
             <div class="dresscode-label left">
                 <div class="dresscode-text">
                     <h3 data-en="Ladies" data-es="Mujeres">Ladies</h3>
-                    <p data-en="Floor-length or cocktail dresses<br>Autumn colours preferred<br>No white or beige" data-es="Vestidos largos o de cóctel<br>Se prefieren colores otoñales<br>No blanco ni beige">Floor-length or cocktail dresses<br>Autumn colours preferred<br>No white or beige</p>
+                    <p data-en="Floor-length or cocktail dresses<br>Autumn colours preferred" data-es="Vestidos largos o de cóctel<br>Se prefieren colores cálidos, otoñales">Floor-length or cocktail dresses<br>Autumn colours preferred</p>
                 </div>
                 <div class="dresscode-arrow"></div>
             </div>
@@ -1422,7 +1522,7 @@
             <div class="dresscode-label right">
                 <div class="dresscode-text">
                     <h3 data-en="Gentlemen" data-es="Caballeros">Gentlemen</h3>
-                    <p data-en="Formal suit with tie or bow" data-es="Traje formal con corbata o pajarita">Formal suit with tie or bow</p>
+                    <p data-en="Formal suit with tie or bow tie" data-es="Traje formal con corbata o corbatín">Formal suit with tie and bow tie</p>
                 </div>
                 <div class="dresscode-arrow"></div>
             </div>
@@ -1432,11 +1532,11 @@
         <div class="dresscode-labels-mobile">
             <div class="dresscode-text" style="text-align: center;">
                 <h3 data-en="Ladies" data-es="Mujeres">Ladies</h3>
-                <p data-en="Floor-length or cocktail dresses<br>Autumn colours preferred<br>No white or beige" data-es="Vestidos largos o de cóctel<br>Se prefieren colores otoñales<br>No blanco ni beige">Floor-length or cocktail dresses<br>Autumn colours preferred<br>No white or beige</p>
+                <p data-en="Floor-length or cocktail dresses<br>Autumn colours preferred<br>" data-es="Vestidos largos o de cóctel<br>Se prefieren colores cálidos, otoñales<br>">Floor-length or cocktail dresses<br>Autumn colours preferred<br>No white or beige</p>
             </div>
             <div class="dresscode-text" style="text-align: center;">
                 <h3 data-en="Gentlemen" data-es="Caballeros">Gentlemen</h3>
-                <p data-en="Formal suit with tie or bow" data-es="Traje formal con corbata o pajarita">Formal suit with tie or bow</p>
+                <p data-en="Formal suit with tie or bow" data-es="Traje formal con corbata o corbatín">Formal suit with tie or bow</p>
             </div>
         </div>
     </section>
@@ -1450,7 +1550,7 @@
             <div class="location-card">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.8!2d-3.9667!3d40.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41f4a5e5c5c5c5%3A0x0!2sCastillo%20de%20Batres!5e0!3m2!1sen!2ses!4v1600000000000!5m2!1sen!2ses" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="location-card-content">
-                    <h3 data-en="Venue" data-es="Lugar">Venue</h3>
+                    <h3 data-en="Venue" data-es="Lugar de la Ceremonia">Venue</h3>
                     <p><strong>Castillo de Batres</strong><br>
                     <span data-en="Calle del Castillo, 28976 Batres, Madrid" data-es="Calle del Castillo, 28976 Batres, Madrid">Calle del Castillo, 28976 Batres, Madrid</span></p>
                     <a href="https://maps.google.com/?q=Castillo+de+Batres,+Madrid,+Spain" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -1468,7 +1568,7 @@
             <div class="location-card">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.5!2d-3.6883!3d40.4253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228e23705d39f%3A0xa8fff6d26e2b1988!2sPlaza%20de%20Col%C3%B3n!5e0!3m2!1sen!2ses!4v1600000000000!5m2!1sen!2ses" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="location-card-content">
-                    <h3 data-en="Bus Pickup" data-es="Recogida de Bus">Bus Pickup</h3>
+                    <h3 data-en="Bus Pickup and Dropoff" data-es="Bus Pickup and Dropoff">Bus Pickup and Dropoff</h3>
                     <p><strong>Plaza de Colón</strong><br>
                     <span data-en="Buses depart at 15:00h sharp" data-es="Los autobuses salen a las 15:00h en punto">Buses depart at 3:00 PM sharp</span></p>
                     <a href="https://maps.google.com/?q=Plaza+de+Colon,+Madrid,+Spain" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -1483,8 +1583,36 @@
             </div>
         </div>
 
-        <p class="bus-note" data-en="Transportation will be provided to and from the venue. Return buses will depart after the party." data-es="Se proporcionará transporte de ida y vuelta al lugar. Los buses de regreso saldrán después de la fiesta.">Transportation will be provided to and from the venue. Return buses will depart after the party.</p>
-        <p class="bus-note" style="margin-top: 0.5rem; font-size: 1rem;" data-en="Private door-to-door options are also available for an extra fee." data-es="También hay opciones privadas puerta a puerta disponibles por un costo adicional.">Private door-to-door options are also available for an extra fee.</p>
+        <p class="bus-note" data-en="Round-trip transportation will be provided from the meeting point to the ceremony venue. Return buses will run at midnight and at the end of the party." data-es="Se proporcionará transporte de ida y vuelta desde el punto de encuentro hasta el lugar de la ceremonia. Habrá recorridos de regreso a medianoche y al finalizar la fiesta.">Transportation will be provided to and from the meeting point to the ceremony venue. There will be several return trips after the party.</p>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="section weather-section" id="weather">
+        <h2 data-en="The Weather" data-es="El Clima">The Weather</h2>
+        <p class="section-subtitle" data-en="Madrid in October" data-es="Madrid en Octubre">Madrid in October</p>
+
+        <div class="weather-stats">
+            <div class="weather-stat">
+                <span class="weather-stat-icon">☀️</span>
+                <div class="weather-stat-value">19°C</div>
+                <div class="weather-stat-label" data-en="Avg. High" data-es="Máx. media">Avg. High</div>
+            </div>
+            <div class="weather-stat">
+                <span class="weather-stat-icon">🌙</span>
+                <div class="weather-stat-value">10°C</div>
+                <div class="weather-stat-label" data-en="Avg. Low" data-es="Mín. media">Avg. Low</div>
+            </div>
+            <div class="weather-stat">
+                <span class="weather-stat-icon">🌧️</span>
+                <div class="weather-stat-value">20%</div>
+                <div class="weather-stat-label" data-en="Rain chance" data-es="Prob. lluvia">Rain chance</div>
+            </div>
+        </div>
+
+        <div class="weather-note">
+            <p data-en="October in Madrid is golden — warm sunny days, crisp evenings, and the city dressed in autumn colours. The perfect backdrop for an outdoor celebration." data-es="Octubre en Madrid es dorado — días soleados y cálidos, noches frescas y la ciudad vestida de colores otoñales.">October in Madrid is golden — warm sunny days, crisp evenings, and the city dressed in autumn colours.</p>
+            <p data-en="We recommend bringing a light jacket or wrap for the evening." data-es="Recomendamos traer una chaqueta o chal ligero para la noche.">We recommend bringing a light jacket or wrap for the evening.</p>
+        </div>
     </section>
 
     <!-- Accommodation Section -->
@@ -1544,6 +1672,7 @@
     <section class="section hotels-section" id="hotels">
         <h2 data-en="Hotel Recommendations" data-es="Hoteles Recomendados">Hotel Recommendations</h2>
         <p class="section-subtitle" data-en="We've selected some wonderful hotels near Plaza de Colón for your stay" data-es="Hemos seleccionado algunos hoteles maravillosos cerca de Plaza de Colón para tu estancia">We've selected some wonderful hotels near Plaza de Colón for your stay</p>
+        <p class="section-subtitle" style="margin-top: -1.5rem; font-size: 1.1rem;" data-en="Each hotel has a discount code available" data-es="Cada hotel tiene un código de descuento disponible especial para los invitados">Each hotel has a discount code available</p>
 
         <!-- Gran Lujo -->
         <div class="hotel-category">
@@ -1581,19 +1710,6 @@
                         <h4 class="hotel-card-name">Fénix Gran Meliá</h4>
                         <p class="hotel-card-location">C/ de Hermosilla, 2</p>
                         <p class="hotel-card-note" data-en="Best location: Right on Plaza de Colón. Impeccable classic and stately style." data-es="La mejor ubicación: Justo en la Plaza de Colón. Estilo clásico y señorial impecable.">Best location: Right on Plaza de Colón. Impeccable classic and stately style.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <a href="https://www.blesscollectionhotels.com/en/madrid/bless-hotel-madrid" target="_blank" rel="noopener noreferrer" class="hotel-card">
-                    <img src="hotel-bless.png" alt="Bless Hotel" class="hotel-card-img">
-                    <div class="hotel-card-content">
-                        <h4 class="hotel-card-name">Bless Hotel</h4>
-                        <p class="hotel-card-location">C/ de Velázquez, 62</p>
-                        <p class="hotel-card-note" data-en="Cosmopolitan and vibrant. Ideal for those seeking modern luxury in Salamanca." data-es="Cosmopolita y vibrante. Ideal para quienes buscan lujo moderno en el Barrio de Salamanca.">Cosmopolitan and vibrant. Ideal for those seeking modern luxury in Salamanca.</p>
                         <span class="hotel-card-link">
                             <span data-en="Visit website" data-es="Ver web">Visit website</span>
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -1729,9 +1845,8 @@
                 </svg>
             </div>
             <h3 data-en="Art Fund" data-es="Fondo de Arte">Art Fund</h3>
-            <p data-en="Instead of a traditional gift registry, we're creating an art fund to find a special piece for our home together. Your contribution, in any amount, will help us choose a meaningful artwork that will remind us of this day and all of you." data-es="En lugar de una lista de bodas tradicional, estamos creando un fondo de arte para encontrar una pieza especial para nuestro hogar. Su contribución, en la cantidad que deseen, nos ayudará a elegir una obra de arte significativa que nos recordará este día y a todos ustedes.">Instead of a traditional gift registry, we're creating an art fund to find a special piece for our home together. Your contribution, in any amount, will help us choose a meaningful artwork that will remind us of this day and all of you.</p>
-            <p class="gift-note" data-en="All contributions are anonymous — give whatever feels right to you." data-es="Todas las contribuciones son anónimas — aporta lo que te parezca bien.">All contributions are anonymous — give whatever feels right to you.</p>
-            <a href="#" class="gift-btn" data-en="Contribute to Art Fund" data-es="Contribuir al Fondo de Arte">Contribute to Art Fund</a>
+            <p data-en="Instead of a traditional gift registry, we've created an optional art fund to help us find a special piece for our home together. If you feel inclined to contribute, any amount is warmly appreciated—but please know that your presence at our celebration is truly what matters most to us. Your support, in whatever form feels right to you, will help us choose a meaningful artwork that will always remind us of this day and of all of you." data-es="En lugar de una lista de regalos tradicional, hemos decidido crear un fondo de arte para encontrar una pieza especial para nuestro hogar. Si deseas contribuir, cualquier aporte será profundamente apreciado; no obstante, tu presencia en nuestra celebración es, sin duda, lo más importante para nosotros. Tu apoyo, en la forma que te resulte más cómoda, nos ayudará a elegir una obra significativa que siempre nos recordará este día y a cada uno de ustedes."></p>
+            <a href="https://app.giftcrowd.com/app/join-occasion/-CyB9qqTFFL-z-vv" class="gift-btn" target="_blank" data-en="Contribute to Art Fund" data-es="Contribuir al Fondo de Arte">Contribute to Art Fund</a>
         </div>
     </section>
 
@@ -1835,8 +1950,42 @@
             document.querySelector('.names').style.textTransform = this.checked ? 'uppercase' : 'none';
         });
 
-        // Video background speed
-        document.getElementById('bgVideo').playbackRate = 0.85;
+        // Video crossfade loop
+        const v1 = document.getElementById('bgVideo1');
+        const v2 = document.getElementById('bgVideo2');
+        const FADE_SEC = 2.5;   // crossfade duration (matches CSS transition)
+        const TRIGGER_SEC = 3;  // start crossfade this many seconds before end
+
+        v1.playbackRate = 0.85;
+        v2.playbackRate = 0.85;
+
+        // Show v1 on first load
+        v1.addEventListener('canplay', () => { v1.style.opacity = '0.5'; }, { once: true });
+
+        function crossfadeTo(fromVid, toVid) {
+            toVid.currentTime = 0;
+            toVid.play();
+            toVid.style.opacity = '0.5';
+            fromVid.style.opacity = '0';
+            setTimeout(() => {
+                fromVid.pause();
+                fromVid.currentTime = 0;
+                watchForEnd(toVid, fromVid);
+            }, (FADE_SEC + 0.1) * 1000);
+        }
+
+        function watchForEnd(current, next) {
+            function onTimeUpdate() {
+                if (!current.duration) return;
+                if (current.duration - current.currentTime <= TRIGGER_SEC) {
+                    current.removeEventListener('timeupdate', onTimeUpdate);
+                    crossfadeTo(current, next);
+                }
+            }
+            current.addEventListener('timeupdate', onTimeUpdate);
+        }
+
+        watchForEnd(v1, v2);
     </script>
 
 </body>
