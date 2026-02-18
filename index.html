@@ -71,6 +71,11 @@
             padding-bottom: 5rem;
         }
 
+        /* Hide browser-injected video play button overlay */
+        video::-webkit-media-controls-start-playback-button,
+        video::-webkit-media-controls-overlay-play-button,
+        video::-webkit-media-controls { display: none !important; opacity: 0 !important; }
+
         /* Video background */
         .video-bg {
             position: fixed;
@@ -1544,7 +1549,7 @@
 
 <body>
     <!-- Video Background -->
-    <video class="video-bg" autoplay muted playsinline id="bgVideo1">
+    <video class="video-bg" autoplay muted playsinline webkit-playsinline id="bgVideo1">
         <source src="bg-video3.mp4" type="video/mp4">
     </video>
     <video class="video-bg" muted playsinline id="bgVideo2">
@@ -2197,6 +2202,17 @@
 
         // Show v1 on first load
         v1.addEventListener('canplay', () => { v1.style.opacity = '0.5'; }, { once: true });
+
+        // Explicit play() call for mobile — autoplay attribute alone is sometimes ignored
+        function tryPlayV1() { v1.play().catch(() => {}); }
+        tryPlayV1();
+        // Retry on first touch/click in case browser policy blocked it
+        ['touchstart', 'touchend', 'click'].forEach(function(evt) {
+            document.addEventListener(evt, function handler() {
+                tryPlayV1();
+                document.removeEventListener(evt, handler);
+            }, { once: true, passive: true });
+        });
 
         function crossfadeTo(fromVid, toVid) {
             toVid.currentTime = 0;
