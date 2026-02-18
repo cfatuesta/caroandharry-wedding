@@ -1311,6 +1311,162 @@
             width: 100%;
             margin: 0;
         }
+        /* Madrid Guide Button */
+        .madrid-btn {
+            display: inline-block;
+            background-color: #C99985;
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(201, 153, 133, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1.5rem;
+        }
+        .madrid-btn:hover {
+            background-color: #b8846e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 153, 133, 0.5);
+        }
+
+        /* Madrid Guide Overlay */
+        #madrid-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: #F9F0E1;
+            z-index: 9000;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 4rem 2rem 5rem;
+        }
+        #madrid-overlay.open {
+            transform: translateY(0);
+        }
+        .madrid-close {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: #4a3528;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 9100;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        .madrid-close:hover { opacity: 1; }
+        .madrid-overlay-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .madrid-overlay-inner h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #4a3528;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .madrid-overlay-inner .madrid-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #C99985;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-style: italic;
+        }
+        .madrid-category {
+            margin-bottom: 3rem;
+        }
+        .madrid-category h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #4a3528;
+            border-bottom: 1px solid rgba(201, 153, 133, 0.4);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        .madrid-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.2rem;
+        }
+        .madrid-item {
+            background: rgba(255,255,255,0.6);
+            border: 1px solid rgba(201, 153, 133, 0.2);
+            border-radius: 12px;
+            padding: 1.2rem 1.4rem;
+        }
+        .madrid-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #4a3528;
+            margin-bottom: 0.3rem;
+        }
+        .madrid-item p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #7a5c48;
+            line-height: 1.5;
+        }
+        .food-img-header {
+            font-size: 2.8rem;
+            text-align: center;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, #f5e6d3, #e8d0b0);
+            border-radius: 10px 10px 0 0;
+            margin: -1.2rem -1.4rem 0.8rem;
+            line-height: 1;
+        }
+        .food-phonetic {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            color: #C99985;
+            font-style: italic;
+            margin-bottom: 0.4rem;
+        }
+        .food-phonetic:empty { display: none; }
+        .madrid-restaurant-pick {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #C99985;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .madrid-map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            margin-top: 0.6rem;
+            font-size: 0.88rem;
+            color: #C99985;
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+        .madrid-map-link:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            .madrid-overlay-inner h1 { font-size: 2.2rem; }
+            .madrid-items { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
@@ -1518,6 +1674,14 @@
             <!-- Image -->
             <img src="dress.png" alt="Dress Code Examples" class="dresscode-image">
 
+            <!-- Gentlemen - Right side -->
+            <div class="dresscode-label right">
+                <div class="dresscode-text">
+                    <h3 data-en="Gentlemen" data-es="Caballeros">Gentlemen</h3>
+                    <p data-en="Formal suit with tie or bow tie" data-es="Traje formal con corbata o corbatín">Formal suit with tie or bow tie</p>
+                </div>
+                <div class="dresscode-arrow"></div>
+            </div>
         </div>
 
         <!-- Mobile fallback -->
@@ -1525,6 +1689,10 @@
             <div class="dresscode-text" style="text-align: center;">
                 <h3 data-en="Ladies" data-es="Mujeres">Ladies</h3>
                 <p data-en="Floor-length formal dresses<br>Autumn colours preferred<br>" data-es="Vestidos largos formales<br>Se prefieren colores cálidos, otoñales<br>">Floor-length formal dresses<br>Autumn colours preferred</p>
+            </div>
+            <div class="dresscode-text" style="text-align: center;">
+                <h3 data-en="Gentlemen" data-es="Caballeros">Gentlemen</h3>
+                <p data-en="Formal suit with tie or bow tie" data-es="Traje formal con corbata o corbatín">Formal suit with tie or bow tie</p>
             </div>
         </div>
     </section>
@@ -1814,6 +1982,10 @@
                 </a>
             </div>
         </div>
+        <div style="text-align:center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(201,153,133,0.3);">
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#7a5c48; font-style:italic; max-width:480px; margin: 0 auto 1.2rem;" data-en="If this is your first time in Madrid, we put together a little guide with our favourite things to try, see and explore." data-es="Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.">Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.</p>
+            <button class="madrid-btn" onclick="openMadrid()" data-en="Explore Madrid" data-es="Explorar Madrid">Explorar Madrid</button>
+        </div>
     </section>
 
     <!-- Gift / Art Fund Section -->
@@ -1979,6 +2151,270 @@
         }
 
         watchForEnd(v1, v2);
+    </script>
+
+    <!-- Madrid Guide Overlay -->
+    <div id="madrid-overlay" role="dialog" aria-modal="true">
+        <button class="madrid-close" onclick="closeMadrid()" aria-label="Close">&#x2715;</button>
+        <div class="madrid-overlay-inner">
+            <h1 data-en="Madrid Guide" data-es="Guía de Madrid">Guía de Madrid</h1>
+            <p class="madrid-subtitle" data-en="Our favourite things to do, eat &amp; explore" data-es="Nuestros favoritos: qué hacer, comer y explorar">Nuestros favoritos: qué hacer, comer y explorar</p>
+
+            <!-- Museums -->
+            <div class="madrid-category">
+                <h2 data-en="Museums" data-es="Museos">Museos</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <img src="prado.jpg" alt="Las Meninas — Velázquez" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; object-position:center top; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Museo del Prado" data-es="Museo del Prado">Museo del Prado</h3>
+                        <p data-en="One of the world's finest art museums. Don't miss Velázquez's Las Meninas and Goya's Black Paintings." data-es="Uno de los mejores museos de arte del mundo. No te pierdas Las Meninas de Velázquez y las Pinturas Negras de Goya.">Uno de los mejores museos de arte del mundo. No te pierdas Las Meninas de Velázquez y las Pinturas Negras de Goya.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Museo+del+Prado+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="PicassoGuernica.jpg" alt="Guernica — Picasso" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Museo Reina Sofía" data-es="Museo Reina Sofía">Museo Reina Sofía</h3>
+                        <p data-en="Home to Picasso's Guernica. A must for modern and contemporary art lovers." data-es="Aquí se encuentra el Guernica de Picasso. Imprescindible para los amantes del arte moderno y contemporáneo.">Aquí se encuentra el Guernica de Picasso. Imprescindible para los amantes del arte moderno y contemporáneo.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Museo+Reina+Sofia+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="thyssen-bornemisza-museum.jpg" alt="Museo Thyssen-Bornemisza" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Museo Thyssen-Bornemisza" data-es="Museo Thyssen-Bornemisza">Museo Thyssen-Bornemisza</h3>
+                        <p data-en="An extraordinary private collection spanning seven centuries of painting, from the Renaissance to Pop Art." data-es="Una extraordinaria colección privada que abarca siete siglos de pintura, desde el Renacimiento hasta el Pop Art.">Una extraordinaria colección privada que abarca siete siglos de pintura, desde el Renacimiento hasta el Pop Art.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Museo+Thyssen+Bornemisza+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What to Eat -->
+            <div class="madrid-category">
+                <h2 data-en="What to Eat" data-es="Gastronomía">Gastronomía</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <img src="paella" alt="Paella" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3>Paella</h3>
+             
+                        <p data-en="Saffron-infused rice cooked slowly in a wide flat pan with chicken, rabbit or seafood, absorbing all the flavours as it cooks. Eaten with crusty bread and a squeeze of lemon." data-es="Arroz con azafrán cocinado lentamente en una paella plana con pollo, conejo o marisco, absorbiendo todos los sabores. Se come con pan y un chorrito de limón.">Arroz con azafrán cocinado lentamente en paella plana con pollo, conejo o marisco. Se come con pan y limón.</p>
+                        <p class="madrid-restaurant-pick" data-en="✦ Try: La Barraca · Casa de Valencia" data-es="✦ Prueba en: La Barraca · Casa de Valencia">✦ Prueba en: La Barraca · Casa de Valencia</p>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="cocido.avif" alt="Cocido Madrileño" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Cocido Madrileño" data-es="Cocido Madrileño">Cocido Madrileño</h3>
+
+                        <p data-en="A hearty stew of chickpeas, potatoes, chorizo, morcilla, pork and beef, slow-cooked for hours. Served in three courses: first the broth as soup, then the chickpeas, then the meats." data-es="Un contundente guiso de garbanzos, patatas, chorizo, morcilla, cerdo y ternera, cocinado a fuego lento durante horas. Se sirve en tres vuelcos: primero el caldo, luego los garbanzos y finalmente las carnes.">Un guiso de garbanzos, chorizo, morcilla y carnes cocinado durante horas. Se sirve en tres vuelcos: caldo, garbanzos y carnes.</p>
+                        <p class="madrid-restaurant-pick" data-en="✦ Try: La Bola Taberna · Malacatín" data-es="✦ Prueba en: La Bola Taberna · Malacatín">✦ Prueba en: La Bola Taberna · Malacatín</p>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="croquetas.jpg" alt="Croquetas" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Croquetas" data-es="Croquetas">Croquetas</h3>
+
+                        <p data-en="Small breaded and fried rolls filled with a creamy béchamel mixed with jamón, chicken or cod. Shatteringly crispy on the outside, warm and molten in the middle." data-es="Pequeñas croquetas empanadas y fritas rellenas de una cremosa bechamel con jamón, pollo o bacalao. Crujientes por fuera y derretidas por dentro.">Pequeñas croquetas rellenas de bechamel cremosa con jamón, pollo o bacalao. Crujientes por fuera, derretidas por dentro.</p>
+                        <p class="madrid-restaurant-pick" data-en="✦ Try: Bar Tomas · Lakasa" data-es="✦ Prueba en: Bar Tomas · Lakasa">✦ Prueba en: Bar Tomas · Lakasa</p>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="jamon.jpg" alt="Jamón Ibérico" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Jamón Ibérico" data-es="Jamón Ibérico">Jamón Ibérico</h3>
+
+                        <p data-en="Dry-cured ham from Iberian black pigs, aged for 2–4 years. Thinly sliced and served at room temperature — rich, nutty and silky. The Bellota variety, from acorn-fed pigs, is the finest." data-es="Jamón curado de cerdo ibérico negro, añejado entre 2 y 4 años. Se sirve en lonchas finas a temperatura ambiente: rico, con sabor a nuez y sedoso. La variedad Bellota, de cerdo alimentado con bellotas, es la más selecta.">Jamón de cerdo ibérico curado durante años. Fino, sedoso y con sabor a nuez. La variedad Bellota es la más selecta.</p>
+                        <p class="madrid-restaurant-pick" data-en="✦ Try: Cinco Jotas · Mercado de San Miguel" data-es="✦ Prueba en: Cinco Jotas · Mercado de San Miguel">✦ Prueba en: Cinco Jotas · Mercado de San Miguel</p>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="bocadillo.jpg" alt="Bocadillo de Calamares" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Bocadillo de Calamares" data-es="Bocadillo de Calamares">Bocadillo de Calamares</h3>
+
+                        <p data-en="Rings of squid, lightly battered and fried until golden, stuffed into a crusty Spanish baguette. No sauce, no fuss — just squid, bread and maybe a squeeze of lemon. Best eaten standing up near Plaza Mayor." data-es="Anillos de calamar ligeramente rebozados y fritos hasta dorar, metidos en una barra de pan crujiente. Sin salsas, sin complicaciones: solo calamar, pan y quizás un chorrito de limón. Mejor de pie cerca de la Plaza Mayor.">Anillos de calamar rebozados y fritos, en barra de pan crujiente. Sin salsas, sin complicaciones. Mejor de pie cerca de la Plaza Mayor.</p>
+                        <p class="madrid-restaurant-pick" data-en="✦ Try: Bar La Campana · Bar El Brillante" data-es="✦ Prueba en: Bar La Campana · Bar El Brillante">✦ Prueba en: Bar La Campana · Bar El Brillante</p>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="patatas.jpeg" alt="Patatas Bravas" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Patatas Bravas" data-es="Patatas Bravas">Patatas Bravas</h3>
+
+                        <p data-en="Chunky fried potatoes served with two sauces: a spicy, smoky tomato-based bravas sauce and a creamy garlic aioli. Every tapas bar has them — but the quality varies wildly." data-es="Patatas fritas en trozos servidas con dos salsas: una brava picante y ahumada a base de tomate, y un alioli cremoso de ajo. Todos los bares de tapas las tienen, aunque la calidad varía mucho.">Patatas fritas en trozos con salsa brava picante y alioli cremoso. Todos los bares las tienen, pero la calidad varía mucho.</p>
+                        <p class="madrid-restaurant-pick" data-en="✦ Try: Docamar (Madrid's most famous bravas)" data-es="✦ Prueba en: Docamar (las bravas más famosas de Madrid)">✦ Prueba en: Docamar (las bravas más famosas de Madrid)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Markets & Tapas -->
+            <div class="madrid-category">
+                <h2 data-en="Markets &amp; Tapas" data-es="Mercados &amp; Tapas">Mercados &amp; Tapas</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <img src="san%20miguel.jpeg" alt="Mercado de San Miguel" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Mercado de San Miguel" data-es="Mercado de San Miguel">Mercado de San Miguel</h3>
+                        <p data-en="Madrid's most beautiful gourmet market, steps from Plaza Mayor. Perfect for tapas, oysters, vermouth and jamón." data-es="El mercado gourmet más bello de Madrid, a pasos de la Plaza Mayor. Perfecto para tapas, ostras, vermut y jamón.">El mercado gourmet más bello de Madrid, a pasos de la Plaza Mayor. Perfecto para tapas, ostras, vermut y jamón.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Mercado+de+San+Miguel+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="san%20anton.jpg" alt="Mercado de San Antón" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Mercado de San Antón" data-es="Mercado de San Antón">Mercado de San Antón</h3>
+                        <p data-en="A stylish three-floor market in Chueca with fresh produce, tapas bars, and a rooftop terrace. Beloved by locals." data-es="Un elegante mercado de tres plantas en Chueca con tapas y terraza en la azotea. Un favorito de los madrileños.">Un elegante mercado de tres plantas en Chueca con tapas y terraza. Un favorito de los madrileños.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Mercado+de+San+Anton+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sweet Treats -->
+            <div class="madrid-category">
+                <h2 data-en="Sweet Treats" data-es="Dulces">Dulces</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <img src="tarta.jpeg" alt="Tarta Vasca" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Tarta Vasca — Alex Córdobes" data-es="Tarta Vasca — Alex Córdobes">Tarta Vasca — Alex Córdobes</h3>
+                        <p data-en="Our favourite Basque burnt cheesecake in Madrid. Impossibly creamy with a perfectly caramelised top." data-es="Nuestra tarta vasca favorita en Madrid. Increíblemente cremosa con un toque perfectamente caramelizado.">Nuestra tarta vasca favorita en Madrid. Increíblemente cremosa con un toque perfectamente caramelizado.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Alex+Cordobes+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="turron.webp" alt="Turrón" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Turrón" data-es="Turrón">Turrón</h3>
+                        <p data-en="Spain's classic nougat — perfect in autumn. Almond turrón from Casa Mira, Madrid's most beloved confectionery since 1855." data-es="El clásico turrón español, perfecto en otoño. El de Casa Mira, la confitería más querida de Madrid desde 1855.">El clásico turrón español. El de Casa Mira, la confitería más querida de Madrid desde 1855.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Casa+Mira+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="greek.jpg" alt="Frozen Greek Yogurt" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; object-position:center 75%; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Myka Ice Cream / Llaollao" data-es="Myka Ice Cream / Llaollao">Myka Ice Cream / Llaollao</h3>
+                        <p data-en="Frozen Greek yogurt — creamy, tangy, and completely addictive. A personal favourite of ours that we always come back to." data-es="Yogur griego helado: cremoso, refrescante y completamente adictivo. Un favorito personal al que siempre volvemos.">Yogur griego helado: cremoso, refrescante y completamente adictivo. Un favorito personal al que siempre volvemos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brunch -->
+            <div class="madrid-category">
+                <h2 data-en="Brunch" data-es="Brunch">Brunch</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <h3 data-en="Federal Café" data-es="Federal Café">Federal Café</h3>
+                        <p data-en="Madrid's favourite Australian-style brunch spot. Great coffee, relaxed neighbourhood vibe, and weekend queues that are worth it." data-es="El brunch estilo australiano más querido de Madrid. Buen café, ambiente relajado de barrio y colas de fin de semana que merecen la pena.">El brunch estilo australiano más querido de Madrid. Buen café y ambiente relajado de barrio.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Federal+Cafe+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <h3 data-en="NuBel — Reina Sofía" data-es="NuBel — Reina Sofía">NuBel — Reina Sofía</h3>
+                        <p data-en="Brunch inside Madrid's iconic modern art museum — no museum ticket needed. DJ from noon, great cocktails, and a buzzy creative crowd." data-es="Brunch dentro del icónico museo de arte moderno de Madrid, sin necesidad de entrada. DJ desde mediodía, buenos cócteles y un ambiente creativo y animado.">Brunch dentro del Museo Reina Sofía, sin entrada. DJ desde mediodía y ambiente creativo.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=NuBel+Reina+Sofia+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <h3 data-en="Café Comercial" data-es="Café Comercial">Café Comercial</h3>
+                        <p data-en="A Madrid institution — one of the city's oldest cafés, beautifully renovated. Weekend brunch from 10am in a grand, historic setting." data-es="Una institución madrileña: uno de los cafés más antiguos de la ciudad, bellamente renovado. Brunch de fin de semana desde las 10h en un entorno histórico y señorial.">Una institución madrileña: uno de los cafés más antiguos de la ciudad, bellamente renovado. Brunch desde las 10h.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Cafe+Comercial+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <h3 data-en="Bocanegra" data-es="Bocanegra">Bocanegra</h3>
+                        <p data-en="A hidden gem near Círculo de Bellas Artes. Choose between a lovely secret garden or a cosy indoor setting. Weekends only." data-es="Una joya escondida cerca del Círculo de Bellas Artes. Elige entre un precioso jardín secreto o un interior acogedor. Solo fines de semana.">Una joya escondida cerca del Círculo de Bellas Artes. Jardín secreto o interior acogedor. Solo fines de semana.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Bocanegra+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Michelin Starred -->
+            <div class="madrid-category">
+                <h2 data-en="Michelin Starred" data-es="Estrellas Michelin">Estrellas Michelin</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <img src="diverxo.jpg" alt="DiverXO" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="DiverXO ✦✦✦" data-es="DiverXO ✦✦✦">DiverXO ✦✦✦</h3>
+                        <p data-en="Spain's most exciting 3-Michelin-star restaurant by Chef David Muñoz. A rule-breaking, unforgettable experience. Book months ahead." data-es="El restaurante de 3 estrellas Michelin más emocionante de España, del Chef David Muñoz. Una experiencia única e irreverente. Reserva con meses de antelación.">El restaurante de 3 estrellas Michelin del Chef David Muñoz. Una experiencia única. Reserva con meses de antelación.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=DiverXO+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="coque.jpeg" alt="Coque" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Coque ✦✦" data-es="Coque ✦✦">Coque ✦✦</h3>
+                        <p data-en="Two Michelin stars by the Sandoval brothers. A stunning multi-room experience with an exceptional wine cellar." data-es="Dos estrellas Michelin de los hermanos Sandoval. Una experiencia impresionante en varias salas y una bodega excepcional.">Dos estrellas Michelin de los hermanos Sandoval. Experiencia impresionante con bodega excepcional.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Coque+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="saddle.webp" alt="Saddle" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Saddle ✦" data-es="Saddle ✦">Saddle ✦</h3>
+                        <p data-en="Elegant one-Michelin-star restaurant in the heart of Madrid. Classic cuisine with a modern soul and impeccable service." data-es="Elegante restaurante de una estrella Michelin en el centro de Madrid. Cocina clásica con alma moderna y servicio impecable.">Elegante restaurante de una estrella Michelin. Cocina clásica con alma moderna y servicio impecable.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Saddle+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopping -->
+            <div class="madrid-category">
+                <h2 data-en="Shopping" data-es="Compras">Compras</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <h3 data-en="Calle Serrano" data-es="Calle Serrano">Calle Serrano</h3>
+                        <p data-en="Madrid's golden mile for luxury shopping. Flagship stores, Spanish designers, and beautiful boutiques." data-es="La milla de oro del lujo madrileño. Tiendas insignia, diseñadores españoles y bonitas boutiques.">La milla de oro del lujo madrileño. Tiendas insignia, diseñadores españoles y bonitas boutiques.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Calle+Serrano+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <h3 data-en="Fuencarral &amp; Malasaña" data-es="Fuencarral &amp; Malasaña">Fuencarral &amp; Malasaña</h3>
+                        <p data-en="Madrid's coolest neighbourhood for independent shops, vintage finds, and local designers." data-es="El barrio más cool de Madrid para tiendas independientes, ropa vintage y diseñadores locales.">El barrio más cool de Madrid para tiendas independientes, ropa vintage y diseñadores locales.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Calle+Fuencarral+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <h3 data-en="El Rastro" data-es="El Rastro">El Rastro</h3>
+                        <p data-en="Madrid's iconic Sunday flea market in La Latina. Antiques, art, and unique souvenirs." data-es="El icónico mercadillo dominical de La Latina. Antigüedades, arte y souvenirs únicos.">El icónico mercadillo dominical de La Latina. Antigüedades, arte y souvenirs únicos.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=El+Rastro+Madrid" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day Trips -->
+            <div class="madrid-category">
+                <h2 data-en="Day Trips" data-es="Escapadas de un día">Escapadas de un día</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <img src="toledo.jpeg" alt="Toledo" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Toledo" data-es="Toledo">Toledo</h3>
+                        <p data-en="A UNESCO World Heritage city just 30 minutes by high-speed train. Medieval streets, El Greco masterpieces, and incredible views." data-es="Ciudad Patrimonio de la Humanidad a solo 30 minutos en tren de alta velocidad. Calles medievales, El Greco y vistas increíbles.">Ciudad Patrimonio a 30 min en tren. Calles medievales, El Greco y vistas increíbles.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Toledo+Spain" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="segovia.jpeg" alt="Segovia" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Segovia" data-es="Segovia">Segovia</h3>
+                        <p data-en="Famous for its Roman aqueduct and fairy-tale Alcázar castle. About 30 minutes by train." data-es="Famosa por su acueducto romano y el Alcázar. A unos 30 minutos en tren.">Famosa por su acueducto romano y el Alcázar. A unos 30 minutos en tren.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Segovia+Spain" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="escorial.jpg" alt="El Escorial" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="El Escorial" data-es="El Escorial">El Escorial</h3>
+                        <p data-en="The royal monastery-palace of the Spanish kings, surrounded by mountains. About 1 hour by train." data-es="El monasterio-palacio real rodeado de montañas. A aproximadamente 1 hora en tren.">El monasterio-palacio real rodeado de montañas. A 1 hora en tren.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=El+Escorial+Spain" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2-Day Trips -->
+            <div class="madrid-category">
+                <h2 data-en="2-Day Trips" data-es="Escapadas de dos días">Escapadas de dos días</h2>
+                <div class="madrid-items">
+                    <div class="madrid-item">
+                        <img src="sevilla.webp" alt="Sevilla" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Seville" data-es="Sevilla">Sevilla</h3>
+                        <p data-en="Spain's most passionate city — flamenco, tapas, and the stunning Alcázar palace. About 2.5 hours by AVE high-speed train." data-es="La ciudad más apasionada de España: flamenco, tapas y el impresionante Alcázar. A unas 2,5 horas en tren AVE.">La ciudad más apasionada de España: flamenco, tapas y el impresionante Alcázar. A 2,5 horas en AVE.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Seville+Spain" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="granada.webp" alt="Granada" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Granada" data-es="Granada">Granada</h3>
+                        <p data-en="Home to the breathtaking Alhambra palace, one of the world's most beautiful buildings. Wander the Albaicín quarter and eat free tapas with every drink." data-es="Hogar de la impresionante Alhambra, uno de los edificios más bellos del mundo. Pasea por el Albaicín y disfruta de tapas gratuitas con cada bebida." >Hogar de la impresionante Alhambra. Pasea por el Albaicín y disfruta de tapas gratis con cada bebida.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Granada+Spain" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                    <div class="madrid-item">
+                        <img src="cordoba.jpeg" alt="Córdoba" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
+                        <h3 data-en="Córdoba" data-es="Córdoba">Córdoba</h3>
+                        <p data-en="A city of extraordinary history — the magnificent Mezquita-Catedral, whitewashed streets, and flower-filled patios. About 1.5 hours by AVE." data-es="Una ciudad de historia extraordinaria: la magnífica Mezquita-Catedral, calles encaladas y patios llenos de flores. A 1,5 horas en AVE.">Historia extraordinaria: la magnífica Mezquita-Catedral, calles encaladas y patios llenos de flores. A 1,5 horas en AVE.</p>
+                        <a class="madrid-map-link" href="https://maps.google.com/?q=Cordoba+Spain" target="_blank" rel="noopener">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openMadrid() {
+            document.getElementById('madrid-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMadrid() {
+            document.getElementById('madrid-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMadrid();
+        });
     </script>
 
 </body>
