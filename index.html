@@ -1341,18 +1341,30 @@
             inset: 0;
             background-color: #F9F0E1;
             z-index: 9000;
-            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
             transform: translateY(100%);
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 4rem 2rem 5rem;
         }
         #madrid-overlay.open {
             transform: translateY(0);
         }
+        .madrid-overlay-header {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0.8rem 1.2rem;
+            background: #F9F0E1;
+            border-bottom: 1px solid rgba(201, 153, 133, 0.2);
+        }
+        .madrid-overlay-scroll {
+            flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 2rem 2rem 5rem;
+        }
         .madrid-close {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
             background: none;
             border: none;
             font-family: 'Cormorant Garamond', serif;
@@ -1360,7 +1372,6 @@
             color: #4a3528;
             cursor: pointer;
             line-height: 1;
-            z-index: 9100;
             width: 2.5rem;
             height: 2.5rem;
             display: flex;
@@ -1370,6 +1381,67 @@
             transition: opacity 0.2s;
         }
         .madrid-close:hover { opacity: 1; }
+
+        /* RSVP Notice */
+        #rsvp-deadline .section-subtitle {
+            font-size: 1.6rem;
+            background: rgba(74, 90, 58, 0.1);
+            border: 1px solid rgba(74, 90, 58, 0.25);
+            border-radius: 14px;
+            padding: 1rem 2rem;
+            display: inline-block;
+            color: #4a5a3a;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 480px) {
+            #rsvp-deadline .section-subtitle { font-size: 1.3rem; padding: 0.8rem 1.3rem; }
+        }
+
+        /* Chapter Nav Tabs */
+        #chapter-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            display: flex;
+            gap: 0.4rem;
+            padding: 0.55rem 1rem;
+            background: rgba(249, 240, 225, 0.93);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            overflow-x: auto;
+            scrollbar-width: none;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            border-bottom: 1px solid rgba(201, 153, 133, 0.25);
+        }
+        #chapter-nav.visible { transform: translateY(0); }
+        #chapter-nav::-webkit-scrollbar { display: none; }
+        .chapter-tab {
+            flex-shrink: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            color: #7a5c48;
+            background: none;
+            border: 1px solid rgba(201, 153, 133, 0.4);
+            border-radius: 50px;
+            padding: 0.2rem 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .chapter-tab.active {
+            background: #C99985;
+            color: #fff;
+            border-color: #C99985;
+        }
+        .chapter-tab:hover:not(.active) {
+            background: rgba(201, 153, 133, 0.15);
+        }
         .madrid-overlay-inner {
             max-width: 860px;
             margin: 0 auto;
@@ -1982,10 +2054,6 @@
                 </a>
             </div>
         </div>
-        <div style="text-align:center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(201,153,133,0.3);">
-            <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#7a5c48; font-style:italic; max-width:480px; margin: 0 auto 1.2rem;" data-en="If this is your first time in Madrid, we put together a little guide with our favourite things to try, see and explore." data-es="Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.">Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.</p>
-            <button class="madrid-btn" onclick="openMadrid()" data-en="Explore Madrid" data-es="Explorar Madrid">Explorar Madrid</button>
-        </div>
     </section>
 
     <!-- Gift / Art Fund Section -->
@@ -2009,9 +2077,14 @@
         </div>
     </section>
 
+    <!-- Explore Madrid Button -->
+    <div style="text-align:center; padding: 0 2rem 4rem;">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#7a5c48; font-style:italic; max-width:480px; margin: 0 auto 1.2rem;" data-en="If this is your first time in Madrid, we put together a little guide with our favourite things to try, see and explore." data-es="Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.">Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.</p>
+        <button class="madrid-btn" onclick="openMadrid()" data-en="Explore Madrid" data-es="Explorar Madrid">Explorar Madrid</button>
+    </div>
+
     <!-- RSVP Deadline Section -->
     <section class="section" id="rsvp-deadline" style="text-align:center; padding: 5rem 2rem;">
-        <h2 data-en="RSVP" data-es="RSVP">RSVP</h2>
         <p class="section-subtitle" data-en="Please complete the RSVP before <strong>April 1st</strong>" data-es="Por favor completa el RSVP antes del <strong>1 de abril</strong>">Please complete the RSVP before <strong>April 1st</strong></p>
     </section>
 
@@ -2153,12 +2226,18 @@
         watchForEnd(v1, v2);
     </script>
 
+    <!-- Chapter Nav -->
+    <nav id="chapter-nav" aria-label="Page sections"></nav>
+
     <!-- Madrid Guide Overlay -->
-    <div id="madrid-overlay" role="dialog" aria-modal="true">
-        <button class="madrid-close" onclick="closeMadrid()" aria-label="Close">&#x2715;</button>
-        <div class="madrid-overlay-inner">
-            <h1 data-en="Madrid Guide" data-es="Guía de Madrid">Guía de Madrid</h1>
-            <p class="madrid-subtitle" data-en="Our favourite things to do, eat &amp; explore" data-es="Nuestros favoritos: qué hacer, comer y explorar">Nuestros favoritos: qué hacer, comer y explorar</p>
+    <div id="madrid-overlay">
+        <div class="madrid-overlay-header">
+            <button class="madrid-close" onclick="closeMadrid()" aria-label="Close">✕</button>
+        </div>
+        <div class="madrid-overlay-scroll">
+            <div class="madrid-overlay-inner">
+                <h1 data-en="Explore Madrid" data-es="Explorar Madrid">Explorar Madrid</h1>
+                <p class="madrid-subtitle" data-en="Our favourite things to do, eat &amp; explore" data-es="Nuestros favoritos: qué hacer, comer y explorar">Nuestros favoritos: qué hacer, comer y explorar</p>
 
             <!-- Museums -->
             <div class="madrid-category">
@@ -2192,7 +2271,7 @@
                     <div class="madrid-item">
                         <img src="paella" alt="Paella" style="display:block; width:calc(100% + 2.8rem); max-width:calc(100% + 2.8rem); height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:-1.2rem -1.4rem 0.8rem;">
                         <h3>Paella</h3>
-             
+                        <p class="food-phonetic" data-en='psst — it&apos;s pronounced "pae-ya", not "pa-el-la" :)' data-es="">psst — it's pronounced "pae-ya", not "pa-el-la" :)</p>
                         <p data-en="Saffron-infused rice cooked slowly in a wide flat pan with chicken, rabbit or seafood, absorbing all the flavours as it cooks. Eaten with crusty bread and a squeeze of lemon." data-es="Arroz con azafrán cocinado lentamente en una paella plana con pollo, conejo o marisco, absorbiendo todos los sabores. Se come con pan y un chorrito de limón.">Arroz con azafrán cocinado lentamente en paella plana con pollo, conejo o marisco. Se come con pan y limón.</p>
                         <p class="madrid-restaurant-pick" data-en="✦ Try: La Barraca · Casa de Valencia" data-es="✦ Prueba en: La Barraca · Casa de Valencia">✦ Prueba en: La Barraca · Casa de Valencia</p>
                     </div>
@@ -2400,8 +2479,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            </div><!-- end madrid-overlay-inner -->
+        </div><!-- end madrid-overlay-scroll -->
+    </div><!-- end madrid-overlay -->
 
     <script>
         function openMadrid() {
@@ -2415,6 +2495,61 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeMadrid();
         });
+
+        // Chapter navigation tabs
+        (function() {
+            const sections = [
+                { id: 'timeline',     en: 'Schedule',      es: 'Programa' },
+                { id: 'dresscode',    en: 'Dress Code',    es: 'Dress Code' },
+                { id: 'location',     en: 'Getting There', es: 'Cómo Llegar' },
+                { id: 'weather',      en: 'Weather',       es: 'Clima' },
+                { id: 'stay',         en: 'Where to Stay', es: 'Alojamiento' },
+                { id: 'gift',         en: 'Gift',          es: 'Regalo' },
+                { id: 'rsvp-deadline',en: 'RSVP',          es: 'RSVP' },
+            ];
+            const nav = document.getElementById('chapter-nav');
+            const revealed = new Set();
+
+            // Add Explore Madrid tab immediately (always visible once nav shows)
+            const madridTab = document.createElement('button');
+            madridTab.className = 'chapter-tab';
+            madridTab.dataset.en = 'Explore Madrid';
+            madridTab.dataset.es = 'Explorar Madrid';
+            madridTab.textContent = document.documentElement.lang === 'en' ? 'Explore Madrid' : 'Explorar Madrid';
+            madridTab.style.background = '#C99985';
+            madridTab.style.color = '#fff';
+            madridTab.style.borderColor = '#C99985';
+            madridTab.addEventListener('click', openMadrid);
+            nav.appendChild(madridTab);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !revealed.has(entry.target.id)) {
+                        revealed.add(entry.target.id);
+                        const section = sections.find(s => s.id === entry.target.id);
+                        if (!section) return;
+                        const tab = document.createElement('a');
+                        tab.href = '#' + section.id;
+                        tab.className = 'chapter-tab';
+                        tab.dataset.en = section.en;
+                        tab.dataset.es = section.es;
+                        tab.textContent = section[document.documentElement.lang] || section.en;
+                        nav.insertBefore(tab, madridTab);
+                        nav.classList.add('visible');
+                    }
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.chapter-tab').forEach(t => {
+                            t.classList.toggle('active', t.getAttribute('href') === '#' + entry.target.id);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            sections.forEach(s => {
+                const el = document.getElementById(s.id);
+                if (el) observer.observe(el);
+            });
+        })();
     </script>
 
 </body>
