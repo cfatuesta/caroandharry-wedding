@@ -2503,6 +2503,11 @@
 
     <script>
         function openMadrid() {
+            // Sync overlay content to current language before opening
+            var lang = document.documentElement.lang || 'es';
+            document.getElementById('madrid-overlay').querySelectorAll('[data-en]').forEach(function(el) {
+                el.innerHTML = el.dataset[lang];
+            });
             document.getElementById('madrid-overlay').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
