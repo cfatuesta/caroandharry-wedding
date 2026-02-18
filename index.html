@@ -2054,6 +2054,10 @@
                 </a>
             </div>
         </div>
+        <div style="text-align:center; margin-top: 5rem; padding-top: 2.5rem; border-top: 1px solid rgba(201,153,133,0.3);">
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#7a5c48; font-style:italic; max-width:480px; margin: 0 auto 1.2rem;" data-en="If this is your first time in Madrid, we put together a little guide with our favourite things to try, see and explore." data-es="Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.">Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.</p>
+            <button class="madrid-btn" onclick="openMadrid()" data-en="Explore Madrid" data-es="Explorar Madrid">Explorar Madrid</button>
+        </div>
     </section>
 
     <!-- Gift / Art Fund Section -->
@@ -2076,12 +2080,6 @@
             <a href="#" class="gift-btn" data-en="Contribute to Art Fund" data-es="Contribuir al Fondo de Arte">Contribute to Art Fund</a>
         </div>
     </section>
-
-    <!-- Explore Madrid Button -->
-    <div style="text-align:center; padding: 0 2rem 4rem;">
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#7a5c48; font-style:italic; max-width:480px; margin: 0 auto 1.2rem;" data-en="If this is your first time in Madrid, we put together a little guide with our favourite things to try, see and explore." data-es="Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.">Si es tu primera vez en Madrid, hemos preparado una pequeña guía con nuestros sitios favoritos para comer, visitar y descubrir.</p>
-        <button class="madrid-btn" onclick="openMadrid()" data-en="Explore Madrid" data-es="Explorar Madrid">Explorar Madrid</button>
-    </div>
 
     <!-- RSVP Deadline Section -->
     <section class="section" id="rsvp-deadline" style="text-align:center; padding: 5rem 2rem;">
@@ -2510,18 +2508,6 @@
             const nav = document.getElementById('chapter-nav');
             const revealed = new Set();
 
-            // Add Explore Madrid tab immediately (always visible once nav shows)
-            const madridTab = document.createElement('button');
-            madridTab.className = 'chapter-tab';
-            madridTab.dataset.en = 'Explore Madrid';
-            madridTab.dataset.es = 'Explorar Madrid';
-            madridTab.textContent = document.documentElement.lang === 'en' ? 'Explore Madrid' : 'Explorar Madrid';
-            madridTab.style.background = '#C99985';
-            madridTab.style.color = '#fff';
-            madridTab.style.borderColor = '#C99985';
-            madridTab.addEventListener('click', openMadrid);
-            nav.appendChild(madridTab);
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !revealed.has(entry.target.id)) {
@@ -2534,7 +2520,7 @@
                         tab.dataset.en = section.en;
                         tab.dataset.es = section.es;
                         tab.textContent = section[document.documentElement.lang] || section.en;
-                        nav.insertBefore(tab, madridTab);
+                        nav.appendChild(tab);
                         nav.classList.add('visible');
                     }
                     if (entry.isIntersecting) {
