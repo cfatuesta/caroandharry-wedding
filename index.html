@@ -1353,6 +1353,53 @@
         #madrid-overlay.open {
             transform: translateY(0);
         }
+
+        /* Map Modal */
+        #map-modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 9500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        #map-modal.open {
+            display: flex;
+        }
+        .map-modal-content {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+        }
+        .map-modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+        .map-modal-close {
+            position: absolute;
+            top: -3rem;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #4a3528;
+            transition: background 0.2s;
+        }
+        .map-modal-close:hover {
+            background: rgba(255, 255, 255, 1);
+        }
         .madrid-overlay-header {
             flex-shrink: 0;
             display: flex;
@@ -1909,6 +1956,10 @@
                 <p data-en="Heart of Madrid. Walking distance to major attractions and great nightlife." data-es="Corazón de Madrid. A poca distancia de las principales atracciones y vida nocturna.">Heart of Madrid. Walking distance to major attractions and great nightlife.</p>
             </div>
         </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+            <button onclick="openMapModal()" style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #C99985; background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0;" data-en="Click here for detailed map of Madrid and recommended areas" data-es="Haz clic aquí para ver el mapa detallado de Madrid y las zonas recomendadas">Click here for detailed map of Madrid and recommended areas</button>
+        </div>
     </section>
 
     <!-- Hotels Section -->
@@ -2039,11 +2090,6 @@
                     </div>
                 </a>
             </div>
-        </div>
-
-        <!-- Madrid Map -->
-        <div style="text-align: center; margin-top: 4rem;">
-            <img src="mapa.jpg" alt="Madrid Neighborhoods Map" style="max-width: 700px; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 0 40px 20px rgba(249, 240, 225, 0.8), 0 4px 20px rgba(74, 53, 40, 0.1);">
         </div>
 
         <div style="text-align:center; margin-top: 5rem; padding-top: 2.5rem; border-top: 1px solid rgba(201,153,133,0.3);">
@@ -2569,6 +2615,14 @@
         </div><!-- end madrid-overlay-scroll -->
     </div><!-- end madrid-overlay -->
 
+    <!-- Map Modal -->
+    <div id="map-modal" onclick="closeMapModal()">
+        <div class="map-modal-content" onclick="event.stopPropagation()">
+            <button class="map-modal-close" onclick="closeMapModal()">×</button>
+            <img src="mapa.jpg" alt="Madrid Neighborhoods Map">
+        </div>
+    </div>
+
     <script>
         function openMadrid() {
             // Sync overlay content to current language before opening
@@ -2584,8 +2638,21 @@
             document.body.style.overflow = '';
         }
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeMadrid();
+            if (e.key === 'Escape') {
+                closeMadrid();
+                closeMapModal();
+            }
         });
+
+        // Map Modal
+        function openMapModal() {
+            document.getElementById('map-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMapModal() {
+            document.getElementById('map-modal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
 
         // Chapter navigation tabs
         (function() {
