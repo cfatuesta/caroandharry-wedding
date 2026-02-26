@@ -1625,6 +1625,102 @@
             .madrid-overlay-inner h1 { font-size: 2.2rem; }
             .madrid-items { grid-template-columns: 1fr; }
         }
+        /* Hotel card cursor */
+        .hotel-card { cursor: pointer; }
+
+        /* Hotel card actions row */
+        .hotel-card-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 0.6rem;
+        }
+        .hotel-card-actions .hotel-card-link { margin-top: 0; }
+        .hotel-card-code-btn {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            color: #2e3a1f;
+            background: none;
+            border: none;
+            border-bottom: 1px solid transparent;
+            cursor: pointer;
+            padding: 0;
+            transition: border-color 0.2s ease;
+        }
+        .hotel-card-code-btn:hover { border-bottom-color: #2e3a1f; }
+
+        /* Discount Modal */
+        .discount-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 9000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .discount-modal.open { display: flex; }
+        .discount-modal-content {
+            background: #F9F0E1;
+            border-radius: 10px;
+            padding: 2rem 2.5rem;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .discount-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4a3528;
+            line-height: 1;
+            padding: 0;
+        }
+        .discount-modal-hotel-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2e3a1f;
+            margin-bottom: 1rem;
+            padding-right: 2rem;
+        }
+        .discount-code-badge {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #C99985;
+            letter-spacing: 0.1em;
+            background: rgba(201,153,133,0.12);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0.5rem 0 0.75rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .discount-modal-type {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a3528;
+            margin-bottom: 0.25rem;
+        }
+        .discount-modal-details {
+            font-size: 0.9rem;
+            color: #5a4030;
+            line-height: 1.6;
+            margin-top: 0.5rem;
+        }
+        .no-discount-text {
+            color: #999;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 
@@ -1998,56 +2094,56 @@
         <div class="hotel-category">
             <h3>5★</h3>
             <div class="hotels-grid">
-                <a href="https://www.hotelorfila.com/" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                <div class="hotel-card" onclick="window.open('https://www.hotelorfila.com/','_blank')">
                     <img src="hotel-orfila.png" alt="Relais & Châteaux Orfila" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">Relais & Châteaux Orfila</h4>
                         <p class="hotel-card-location">C/ de Orfila, 6</p>
                         <p class="hotel-card-note" data-en="Boutique gem: A 19th century palace with a beautiful interior garden. Very romantic and exclusive." data-es="Joyita Boutique: Un palacete del s.XIX con un jardín interior precioso. Muy romántico y exclusivo.">Boutique gem: A 19th century palace with a beautiful interior garden. Very romantic and exclusive.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('orfila','Relais &amp; Châteaux Orfila')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
+                </div>
 
-                <a href="https://www.marriott.com/en-us/hotels/madlc-santo-mauro-a-luxury-collection-hotel-madrid/overview/" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                <div class="hotel-card" onclick="window.open('https://www.marriott.com/en-us/hotels/madlc-santo-mauro-a-luxury-collection-hotel-madrid/overview/','_blank')">
                     <img src="hotel-santomauro.png" alt="Santo Mauro" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">Santo Mauro</h4>
                         <p class="hotel-card-location">C/ de Zurbano, 36</p>
                         <p class="hotel-card-note" data-en="French palace with spectacular gardens. The most iconic and elegant hotel in the area." data-es="Palacio francés con jardines espectaculares. El hotel más icónico y elegante de la zona.">French palace with spectacular gardens. The most iconic and elegant hotel in the area.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('santomauro','Santo Mauro')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
+                </div>
 
-                <a href="https://www.melia.com/en/hotels/spain/madrid/gran-melia-fenix" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                <div class="hotel-card" onclick="window.open('https://www.melia.com/en/hotels/spain/madrid/gran-melia-fenix','_blank')">
                     <img src="hotel-melia.png" alt="Fénix Gran Meliá" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">Fénix Gran Meliá</h4>
                         <p class="hotel-card-location">C/ de Hermosilla, 2</p>
                         <p class="hotel-card-note" data-en="Best location: Right on Plaza de Colón. Impeccable classic and stately style." data-es="La mejor ubicación: Justo en la Plaza de Colón. Estilo clásico y señorial impecable.">Best location: Right on Plaza de Colón. Impeccable classic and stately style.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('melia','Fénix Gran Meliá')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
-                <a href="https://hotelurso.com/" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                </div>
+                <div class="hotel-card" onclick="window.open('https://hotelurso.com/','_blank')">
                     <img src="hotel-urso.png" alt="URSO Hotel & Spa" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">URSO Hotel & Spa</h4>
                         <p class="hotel-card-location">C/ de Mejía Lequerica, 8</p>
                         <p class="hotel-card-note" data-en="Historic building with modern interior design. Its spa is one of the best in Madrid." data-es="Edificio histórico con un diseño interior moderno. Su spa es uno de los mejores de Madrid.">Historic building with modern interior design. Its spa is one of the best in Madrid.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('urso','URSO Hotel &amp; Spa')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
+                </div>
 
             </div>
         </div>
@@ -2056,31 +2152,31 @@
         <div class="hotel-category">
             <h3>4★</h3>
             <div class="hotels-grid">
-                <a href="http://www.hotelsardineromadrid.com/" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                <div class="hotel-card" onclick="window.open('http://www.hotelsardineromadrid.com/','_blank')">
                     <img src="hotel-sardinero.png" alt="Hotel Sardinero" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">Hotel Sardinero</h4>
                         <p class="hotel-card-location">Pza. Alonso Martínez, 3</p>
                         <p class="hotel-card-note" data-en="Highly recommended: 5 min from Colón. Bright hotel with high ceilings and impeccable design." data-es="Muy recomendado: A 5 min de Colón. Hotel con mucha luz, techos altos y diseño impecable.">Highly recommended: 5 min from Colón. Bright hotel with high ceilings and impeccable design.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('sardinero','Hotel Sardinero')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
+                </div>
 
-                <a href="https://www.nh-hotels.com/en/hotel/nh-collection-madrid-colon" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                <div class="hotel-card" onclick="window.open('https://www.nh-hotels.com/en/hotel/nh-collection-madrid-colon','_blank')">
                     <img src="hotel-nhcolon.png" alt="NH Collection Colón" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">NH Collection Colón</h4>
                         <p class="hotel-card-location">Marqués de Zurgena, 4</p>
                         <p class="hotel-card-note" data-en="Most direct access to the bus area. Practical, modern with rooftop pool." data-es="El acceso más directo a la zona de buses. Práctico, moderno y con piscina en la azotea.">Most direct access to the bus area. Practical, modern with rooftop pool.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('nhcolon','NH Collection Colón')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
+                </div>
 
             </div>
         </div>
@@ -2089,31 +2185,44 @@
         <div class="hotel-category">
             <h3>3★</h3>
             <div class="hotels-grid">
-                <a href="https://www.bypillow.com/alojamientos/hoteles-en-madrid/velazquez45-by-pillow/" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                <div class="hotel-card" onclick="window.open('https://www.bypillow.com/alojamientos/hoteles-en-madrid/velazquez45-by-pillow/','_blank')">
                     <img src="hotel-bypillow.png" alt="BYPILLOW Velázquez 45" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">BYPILLOW Velázquez 45</h4>
                         <p class="hotel-card-location">C/ de Velázquez, 45</p>
                         <p class="hotel-card-note" data-en="Modern boutique hostel in the shopping district. Very comfortable for young guests." data-es="Hostal boutique moderno en plena zona comercial. Muy cómodo para jóvenes.">Modern boutique hostel in the shopping district. Very comfortable for young guests.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('bypillow','BYPILLOW Velázquez 45')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
+                </div>
 
-                <a href="https://boutiqueurbanhotels.com/boutique-urban-serrano/" target="_blank" rel="noopener noreferrer" class="hotel-card">
+                <div class="hotel-card" onclick="window.open('https://boutiqueurbanhotels.com/boutique-urban-serrano/','_blank')">
                     <img src="hotel-genova.png" alt="Boutique Urban Madrid Génova" class="hotel-card-img">
                     <div class="hotel-card-content">
                         <h4 class="hotel-card-name">Boutique Urban Génova</h4>
                         <p class="hotel-card-location">C/ de Génova, 5</p>
                         <p class="hotel-card-note" data-en="Modern and minimalist. Great location near Colón at an affordable price." data-es="Moderno y minimalista. Excelente ubicación cerca de Colón a un precio accesible.">Modern and minimalist. Great location near Colón at an affordable price.</p>
-                        <span class="hotel-card-link">
-                            <span data-en="Visit website" data-es="Ver web">Visit website</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </span>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('genova','Boutique Urban Génova')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
                     </div>
-                </a>
+                </div>
+
+                <div class="hotel-card" onclick="window.open('https://ihostyou.es/','_blank')">
+                    <img src="hostalboutique.jpg" alt="Hostal Boutique I Host You" class="hotel-card-img">
+                    <div class="hotel-card-content">
+                        <h4 class="hotel-card-name">Hostal Boutique I Host You</h4>
+                        <p class="hotel-card-location">Madrid</p>
+                        <p class="hotel-card-note" data-en="Charming boutique hostal in the heart of Madrid." data-es="Encantador hostal boutique en el corazón de Madrid.">Charming boutique hostal in the heart of Madrid.</p>
+                        <div class="hotel-card-actions">
+                            <span class="hotel-card-link"><span data-en="Visit website" data-es="Ver web">Visit website</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                            <button class="hotel-card-code-btn" onclick="event.stopPropagation();openDiscountModal('ihostyou','Hostal Boutique I Host You')"><span data-en="See code" data-es="Ver código">See code</span></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2722,6 +2831,95 @@
             });
         })();
     </script>
+
+    <script>
+        var discountData = {
+            bypillow: {
+                en: {
+                    type: '5% discount',
+                    code: 'C&H',
+                    details: 'Valid for stays <strong>Oct 16–19, 2026</strong>.<br>10 codes available (extendable as needed).<br>Code valid until <strong>one week before the wedding</strong>.'
+                },
+                es: {
+                    type: '5% de descuento',
+                    code: 'C&H',
+                    details: 'Válido para estancias del <strong>16 al 19 de octubre de 2026</strong>.<br>10 códigos disponibles (ampliable según se acaben).<br>Código válido hasta <strong>la semana antes de la boda</strong>.'
+                }
+            },
+            urso: {
+                en: {
+                    type: '10% off the rate at time of booking',
+                    code: null,
+                    details: 'Book directly via the Individual Reservations Dept.:<br><strong>info@hotelurso.com</strong><br>Code valid until <strong>1 month before the wedding</strong>.<br><em>Code will be shared from February 1st, 2026.</em>'
+                },
+                es: {
+                    type: '10% sobre el precio en el momento de la reserva',
+                    code: null,
+                    details: 'Reservas directamente a través del Dpto. de Reservas Individuales:<br><strong>info@hotelurso.com</strong><br>Código válido hasta <strong>un mes antes de la boda</strong>.<br><em>Disponible a partir del 1 de febrero de 2026.</em>'
+                }
+            },
+            nhcolon: {
+                en: {
+                    type: '10% discount',
+                    code: 'Coming soon',
+                    details: 'Code will be shared in the <strong>first week of February 2026</strong>.<br>Valid until <strong>75 days before the wedding</strong> (approx. August 4, 2026).'
+                },
+                es: {
+                    type: '10% de descuento',
+                    code: 'Próximamente',
+                    details: 'El código se facilitará la <strong>primera semana de febrero de 2026</strong>.<br>Válido hasta <strong>75 días antes de la boda</strong> (aprox. 4 de agosto de 2026).'
+                }
+            }
+        };
+
+        function openDiscountModal(hotelKey, hotelName) {
+            var lang = document.documentElement.lang || 'es';
+            var modal = document.getElementById('discount-modal');
+            var hotelNameEl = document.getElementById('discount-modal-hotel');
+            var bodyEl = document.getElementById('discount-modal-body');
+
+            hotelNameEl.textContent = hotelName;
+
+            var data = discountData[hotelKey];
+            if (data) {
+                var d = data[lang] || data['en'];
+                var html = '<p class="discount-modal-type">' + d.type + '</p>';
+                if (d.code && d.code !== 'Coming soon' && d.code !== 'Próximamente') {
+                    html += '<div class="discount-code-badge">' + d.code + '</div>';
+                } else if (d.code) {
+                    html += '<p style="font-style:italic;color:#999;margin-top:0.5rem;">' + d.code + '</p>';
+                }
+                html += '<p class="discount-modal-details">' + d.details + '</p>';
+                bodyEl.innerHTML = html;
+            } else {
+                var noCode = lang === 'es'
+                    ? 'No hay código de descuento disponible para este hotel.'
+                    : 'No discount code available for this hotel.';
+                bodyEl.innerHTML = '<p class="no-discount-text">' + noCode + '</p>';
+            }
+
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDiscountModal() {
+            document.getElementById('discount-modal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeDiscountModal();
+        });
+    </script>
+
+    <!-- Discount Code Modal -->
+    <div id="discount-modal" class="discount-modal" onclick="closeDiscountModal()">
+        <div class="discount-modal-content" onclick="event.stopPropagation()">
+            <button class="discount-modal-close" onclick="closeDiscountModal()">×</button>
+            <h3 class="discount-modal-hotel-name" id="discount-modal-hotel"></h3>
+            <div id="discount-modal-body"></div>
+        </div>
+    </div>
 
 </body>
 
