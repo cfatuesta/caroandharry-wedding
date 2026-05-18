@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina &amp; Harry · Wedding Weekend</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VP0PP0BLQD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VP0PP0BLQD');
+    </script>
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Carolina &amp; Harry · Wedding Weekend">
+    <meta property="og:description" content="October 16–18, 2026 · Madrid, Spain · Your weekend with us">
+    <meta property="og:image" content="https://cfatuesta.github.io/caroandharry-wedding/og-image.png">
+    <meta property="og:url" content="https://caroandharry.com/weekend.html">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #F9F0E1;
+            color: #4a3528;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Video background */
+        video::-webkit-media-controls-start-playback-button,
+        video::-webkit-media-controls-overlay-play-button { display: none !important; opacity: 0 !important; }
+
+        .video-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 2.5s ease;
+        }
+
+        #bgVideo2 { z-index: -1; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(249, 240, 225, 0.25);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+            .section.hero-section { min-height: 100vh; }
+        }
+
+        /* HERO */
+        .hero-section {
+            padding-bottom: 5rem;
+        }
+
+        .hero-container {
+            text-align: center;
+            width: 100%;
+            max-width: 720px;
+            animation: fadeIn 1.5s ease-out;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .names {
+            text-transform: uppercase;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            font-weight: 500;
+            line-height: 1;
+            color: #2e3a1f;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .names .ampersand {
+            font-style: italic;
+            font-weight: 300;
+            color: #C99985;
+            font-size: 6rem;
+            line-height: 1;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 1px;
+            background-color: #C99985;
+            margin: 1.5rem auto;
+        }
+
+        .welcome-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #5a4030;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #4a3528;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.3rem;
+        }
+
+        .location {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #5a4030;
+            letter-spacing: 0.08em;
+        }
+
+        .calendar-links {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .calendar-link {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: #5a4030;
+            text-decoration: none;
+            border-bottom: 1px solid #C99985;
+            padding-bottom: 0.15rem;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-link:hover {
+            color: #4a3528;
+            border-bottom-color: #4a3528;
+        }
+
+        .lang-toggle {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: #5a4030;
+            opacity: 0.8;
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+            font-size: inherit;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle button:hover { color: #4a3528; border-bottom-color: #C99985; }
+        .lang-toggle button.active { color: #4a3528; font-weight: 500; border-bottom-color: #C99985; }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: #C99985;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            animation: bounce 2s ease-in-out infinite;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .scroll-indicator svg { width: 24px; height: 24px; stroke: #C99985; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%      { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* WEEKEND SECTION */
+        .weekend-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #2e3a1f;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .weekend-section .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #a07565;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .day-card {
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 14px;
+            padding: 2rem 1.6rem 1.8rem;
+            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.12);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            border-top: 3px solid #C99985;
+        }
+
+        .day-card .day-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #a07565;
+            margin-bottom: 0.4rem;
+        }
+
+        .day-card .day-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: #5a4030;
+            margin-bottom: 1rem;
+        }
+
+        .day-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #2e3a1f;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .day-card .day-venue {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #a07565;
+            margin-bottom: 1rem;
+        }
+
+        .day-card .day-meta {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #4a3528;
+            margin-bottom: 0.4rem;
+        }
+
+        .day-card .day-meta strong {
+            font-weight: 600;
+            color: #2e3a1f;
+        }
+
+        .day-card .day-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #5a4030;
+            line-height: 1.55;
+            margin-top: 0.8rem;
+        }
+
+        .day-card .day-map {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: #C99985;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            align-self: center;
+        }
+
+        .day-card .day-map:hover {
+            color: #4a3528;
+            border-bottom-color: #4a3528;
+        }
+
+        /* Sunday mini-timeline */
+        .mini-timeline {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(201, 153, 133, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .mini-timeline-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #4a3528;
+        }
+
+        .mini-timeline-row .mt-time {
+            color: #a07565;
+            font-weight: 600;
+            min-width: 95px;
+            text-align: left;
+            font-size: 0.92rem;
+            letter-spacing: 0.04em;
+        }
+
+        .mini-timeline-row .mt-name {
+            flex: 1;
+            text-align: right;
+            color: #2e3a1f;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .days-grid {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+                max-width: 520px;
+            }
+        }
+
+        /* KIDS SECTION */
+        .kids-section {
+            padding: 5rem 2rem;
+        }
+
+        .kids-card {
+            background: rgba(255, 255, 255, 0.78);
+            border-radius: 16px;
+            padding: 2.5rem 2.2rem;
+            max-width: 680px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 6px 25px rgba(144, 103, 77, 0.12);
+            border: 1px solid rgba(201, 153, 133, 0.3);
+        }
+
+        .kids-card .kids-icon {
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .kids-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #2e3a1f;
+            margin-bottom: 0.4rem;
+        }
+
+        .kids-card .kids-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #a07565;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .kids-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #4a3528;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .planner-contact {
+            margin-top: 1.5rem;
+            padding-top: 1.3rem;
+            border-top: 1px solid rgba(201, 153, 133, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .planner-contact .planner-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #a07565;
+        }
+
+        .planner-contact .planner-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: #2e3a1f;
+            font-weight: 500;
+        }
+
+        .planner-contact .planner-phone {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: #5a4030;
+            text-decoration: none;
+            border-bottom: 1px solid #C99985;
+            padding-bottom: 0.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .planner-contact .planner-phone:hover {
+            color: #4a3528;
+            border-bottom-color: #4a3528;
+        }
+
+        /* GIFT SECTION */
+        .gift-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #2e3a1f;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .gift-section .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #a07565;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            max-width: 600px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .gift-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.1);
+        }
+
+        .gift-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: rgba(201, 153, 133, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: #90674D;
+            fill: none;
+        }
+
+        .gift-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #2e3a1f;
+            margin-bottom: 1rem;
+        }
+
+        .gift-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #5a4030;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .gift-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            background-color: #7a9b6e;
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .gift-btn:hover {
+            background-color: #6a8b5e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(122, 155, 110, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .gift-section h2 { font-size: 2.2rem; }
+            .gift-card { padding: 2rem 1.5rem; margin: 0 1rem; }
+            .gift-card h3 { font-size: 1.5rem; }
+            .gift-card p { font-size: 1rem; }
+        }
+
+        /* CLOSING */
+        .closing-section {
+            padding: 4rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .closing-section p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #5a4030;
+            max-width: 560px;
+            line-height: 1.6;
+            margin: 0 auto 1.5rem;
+        }
+
+        .closing-section .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: #2e3a1f;
+            letter-spacing: 0.05em;
+            margin-top: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .names {
+                font-size: 3rem;
+                gap: 0.6rem;
+            }
+            .names .ampersand { font-size: 3.4rem; }
+            .welcome-text { font-size: 1rem; }
+            .date { font-size: 1.25rem; }
+            .location { font-size: 1.05rem; }
+            .weekend-section h2 { font-size: 2.2rem; }
+            .weekend-section .section-subtitle { font-size: 1.05rem; margin-bottom: 2rem; }
+            .day-card h3 { font-size: 1.5rem; }
+            .day-card { padding: 1.6rem 1.3rem 1.5rem; }
+            .kids-card { padding: 2rem 1.5rem; }
+            .kids-card h2 { font-size: 1.8rem; }
+            .closing-section p { font-size: 1.15rem; }
+            .closing-section .signature { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Video Background -->
+    <video class="video-bg" autoplay muted playsinline webkit-playsinline id="bgVideo1">
+        <source src="bg-video3.mp4" type="video/mp4">
+    </video>
+    <video class="video-bg" muted playsinline id="bgVideo2">
+        <source src="bg-video.mp4" type="video/mp4">
+    </video>
+
+    <!-- HERO -->
+    <section class="section hero-section" id="home">
+        <div class="hero-container">
+            <h1 class="names">
+                <span>Carolina</span>
+                <span class="ampersand">&amp;</span>
+                <span>Harry</span>
+            </h1>
+
+            <div class="hero-divider"></div>
+
+            <p class="welcome-text"
+               data-en="Weekend Schedule"
+               data-es="Agenda del fin de semana">
+               Agenda del fin de semana
+            </p>
+
+            <p class="date"
+               data-en="October 16th – 18th, 2026"
+               data-es="16 – 18 de octubre de 2026">
+               16 – 18 de octubre de 2026
+            </p>
+            <p class="location" data-en="Madrid, Spain" data-es="Madrid, España">Madrid, España</p>
+
+            <div class="calendar-links">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pre-Wedding%20Cocktail%20%E2%80%94%20Carolina%20%26%20Harry&dates=20261016T180000/20261016T210000&ctz=Europe/Madrid&details=Pre-wedding%20cocktail%20at%20La%20Favorita.%20Dress%20code%3A%20Smart%20Casual.%20Drinks%20%26%20nibbles.&location=La%20Favorita%2C%20Madrid"
+                    target="_blank" rel="noopener noreferrer" class="calendar-link"
+                    data-en="Add the pre-wedding cocktail to your calendar"
+                    data-es="Añade el cóctel pre-boda a tu calendario">
+                    Añade el cóctel pre-boda a tu calendario
+                </a>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Carolina%20%26%20Harry%27s%20Wedding&dates=20261018T170000/20261019T020000&ctz=Europe/Madrid&details=Wedding%20at%20Castillo%20de%20Batres.%20Ceremony%2017%3A00%20%C2%B7%20Cocktail%2018%3A00%20%C2%B7%20Dinner%2020%3A00%20%C2%B7%20Party%2022%3A00%E2%80%9302%3A00.&location=Castillo%20de%20Batres%2C%20Madrid%2C%20Spain"
+                    target="_blank" rel="noopener noreferrer" class="calendar-link"
+                    data-en="Add the wedding to your calendar"
+                    data-es="Añade la boda a tu calendario">
+                    Añade la boda a tu calendario
+                </a>
+            </div>
+
+            <div class="lang-toggle">
+                <button data-lang="en">English</button>
+                <span>/</span>
+                <button class="active" data-lang="es">Español</button>
+            </div>
+        </div>
+
+        <a href="#weekend" class="scroll-indicator">
+            <span data-en="Scroll" data-es="Desliza">Desliza</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- WEEKEND SCHEDULE -->
+    <section class="section weekend-section" id="weekend">
+        <h2 data-en="The Weekend" data-es="El Fin de Semana">El Fin de Semana</h2>
+        <p class="section-subtitle"
+           data-en="What's happening, and when"
+           data-es="Qué hacemos, y cuándo">Qué hacemos, y cuándo</p>
+
+        <div class="days-grid">
+            <!-- FRIDAY -->
+            <div class="day-card">
+                <span class="day-label" data-en="Friday" data-es="Viernes">Viernes</span>
+                <span class="day-date" data-en="October 16th" data-es="16 de octubre">16 de octubre</span>
+                <h3 data-en="Pre-Wedding Cocktail" data-es="Cóctel Pre-Boda">Cóctel Pre-Boda</h3>
+                <p class="day-venue">La Favorita</p>
+
+                <p class="day-meta">
+                    <strong data-en="6:00 – 9:00 PM" data-es="18:00 – 21:00 h">18:00 – 21:00 h</strong>
+                </p>
+                <p class="day-meta"
+                   data-en="Dress code: Smart Casual"
+                   data-es="Código de vestimenta: Smart Casual">
+                   Código de vestimenta: Smart Casual
+                </p>
+
+                <a class="day-map" href="https://maps.google.com/?q=La+Favorita+Madrid" target="_blank" rel="noopener">
+                    📍 <span data-en="Google Maps" data-es="Google Maps">Google Maps</span>
+                </a>
+            </div>
+
+            <!-- SATURDAY -->
+            <div class="day-card">
+                <span class="day-label" data-en="Saturday" data-es="Sábado">Sábado</span>
+                <span class="day-date" data-en="October 17th" data-es="17 de octubre">17 de octubre</span>
+                <h3 data-en="Free Day" data-es="Día Libre">Día Libre</h3>
+
+                <p class="day-desc"
+                   data-en="Discover Madrid at your own pace."
+                   data-es="Descubre Madrid a tu ritmo.">
+                   Descubre Madrid a tu ritmo.
+                </p>
+            </div>
+
+            <!-- SUNDAY -->
+            <div class="day-card">
+                <span class="day-label" data-en="Sunday" data-es="Domingo">Domingo</span>
+                <span class="day-date" data-en="October 18th" data-es="18 de octubre">18 de octubre</span>
+                <h3 data-en="The Wedding" data-es="La Boda">La Boda</h3>
+                <p class="day-venue">Castillo de Batres</p>
+
+                <div class="mini-timeline">
+                    <div class="mini-timeline-row">
+                        <span class="mt-time">17:00 h</span>
+                        <span class="mt-name" data-en="Ceremony" data-es="Ceremonia">Ceremonia</span>
+                    </div>
+                    <div class="mini-timeline-row">
+                        <span class="mt-time">18:00 h</span>
+                        <span class="mt-name" data-en="Cocktail" data-es="Cóctel">Cóctel</span>
+                    </div>
+                    <div class="mini-timeline-row">
+                        <span class="mt-time">20:00 h</span>
+                        <span class="mt-name" data-en="Dinner" data-es="Cena">Cena</span>
+                    </div>
+                    <div class="mini-timeline-row">
+                        <span class="mt-time">22:00 – 02:00</span>
+                        <span class="mt-name" data-en="Party" data-es="Fiesta">Fiesta</span>
+                    </div>
+                </div>
+
+                <a class="day-map" href="https://maps.google.com/?q=Castillo+de+Batres,+Madrid,+Spain" target="_blank" rel="noopener">
+                    📍 <span data-en="Google Maps" data-es="Google Maps">Google Maps</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KIDS -->
+    <section class="section kids-section" id="kids">
+        <div class="kids-card">
+            <span class="kids-icon">👶</span>
+            <h2 data-en="If You're Bringing Kids" data-es="Si vienes con niños">Si vienes con niños</h2>
+
+            <p data-en="Let Elena know how many and their ages, so she can plan accordingly."
+               data-es="Avisa a Elena cuántos vienen y qué edades tienen, para que pueda organizarse.">
+               Avisa a Elena cuántos vienen y qué edades tienen, para que pueda organizarse.
+            </p>
+            <p data-en="There will be a nanny and a room for them to play and rest in."
+               data-es="Habrá una niñera y una sala para que jueguen y descansen.">
+               Habrá una niñera y una sala para que jueguen y descansen.
+            </p>
+
+            <div class="planner-contact">
+                <span class="planner-label" data-en="Wedding Planner" data-es="Wedding Planner">Wedding Planner</span>
+                <span class="planner-name">Elena</span>
+                <a class="planner-phone" href="https://wa.me/34656487613" target="_blank" rel="noopener">+34 656 48 76 13</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIFT / ART FUND -->
+    <section class="section gift-section" id="gift">
+        <h2 data-en="Wedding Gift" data-es="Regalo de Boda">Regalo de Boda</h2>
+        <p class="section-subtitle"
+           data-en="Your presence is our greatest gift"
+           data-es="Su presencia es nuestro mejor regalo">Su presencia es nuestro mejor regalo</p>
+
+        <div class="gift-card">
+            <div class="gift-icon">
+                <svg viewBox="0 0 24 24" stroke-width="1.5">
+                    <rect x="3" y="8" width="18" height="13" rx="2"/>
+                    <path d="M12 8V21"/>
+                    <path d="M3 12h18"/>
+                    <path d="M12 8c-2-3-6-3-6 0s4 0 6-3"/>
+                    <path d="M12 8c2-3 6-3 6 0s-4 0-6-3"/>
+                </svg>
+            </div>
+            <h3 data-en="Art Fund" data-es="Fondo de Arte">Fondo de Arte</h3>
+            <p data-en="Instead of a traditional gift registry, we've created an optional art fund to help us find a special piece for our home together. If you feel inclined to contribute, any amount is warmly appreciated—but please know that your presence at our celebration is truly what matters most to us. Your support, in whatever form feels right to you, will help us choose a meaningful artwork that will always remind us of this day and of all of you."
+               data-es="En lugar de una lista de regalos tradicional, hemos decidido crear un fondo de arte para encontrar una pieza especial para nuestro hogar. Si deseas contribuir, cualquier aporte será profundamente apreciado; no obstante, tu presencia en nuestra celebración es, sin duda, lo más importante para nosotros. Tu apoyo, en la forma que te resulte más cómoda, nos ayudará a elegir una obra significativa que siempre nos recordará este día y a cada uno de ustedes.">
+               En lugar de una lista de regalos tradicional, hemos decidido crear un fondo de arte para encontrar una pieza especial para nuestro hogar. Si deseas contribuir, cualquier aporte será profundamente apreciado; no obstante, tu presencia en nuestra celebración es, sin duda, lo más importante para nosotros. Tu apoyo, en la forma que te resulte más cómoda, nos ayudará a elegir una obra significativa que siempre nos recordará este día y a cada uno de ustedes.
+            </p>
+            <a href="art-fund.html" class="gift-btn"
+               data-en="Contribute to Art Fund"
+               data-es="Contribuir al Fondo de Arte">Contribuir al Fondo de Arte</a>
+        </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing-section" id="closing">
+        <p data-en="See you in Madrid." data-es="Nos vemos en Madrid.">Nos vemos en Madrid.</p>
+        <p class="signature">Carolina &amp; Harry</p>
+    </section>
+
+    <script>
+        // Cross-fade video backgrounds
+        (function () {
+            const v1 = document.getElementById('bgVideo1');
+            const v2 = document.getElementById('bgVideo2');
+            if (!v1 || !v2) return;
+
+            v1.addEventListener('loadeddata', () => { v1.style.opacity = 1; });
+
+            v1.addEventListener('ended', () => {
+                v2.currentTime = 0;
+                v2.play().then(() => {
+                    v2.style.opacity = 1;
+                    v1.style.opacity = 0;
+                });
+            });
+            v2.addEventListener('ended', () => {
+                v1.currentTime = 0;
+                v1.play().then(() => {
+                    v1.style.opacity = 1;
+                    v2.style.opacity = 0;
+                });
+            });
+        })();
+
+        // Language toggle
+        function setLanguage(lang, updateUrl = false) {
+            document.querySelectorAll('.lang-toggle button').forEach(b => {
+                b.classList.toggle('active', b.dataset.lang === lang);
+            });
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerHTML = el.dataset[lang];
+            });
+            document.documentElement.lang = lang;
+            if (updateUrl) {
+                const url = new URL(window.location);
+                if (lang === 'en') url.searchParams.set('en', '');
+                else url.searchParams.delete('en');
+                window.history.replaceState({}, '', url);
+            }
+        }
+
+        if (window.location.search.includes('en')) setLanguage('en');
+        else setLanguage('es');
+
+        document.querySelectorAll('.lang-toggle button').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang, true));
+        });
+    </script>
+</body>
+</html>
