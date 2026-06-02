@@ -95,95 +95,6 @@
             line-height: 1.7;
         }
 
-        .revolut-card {
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 16px;
-            padding: 1.75rem 2rem;
-            max-width: 620px;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.1);
-            border: 1px solid rgba(201, 153, 133, 0.25);
-        }
-
-        .revolut-eyebrow {
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #90674D;
-            margin-bottom: 0.5rem;
-        }
-
-        .revolut-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #2e3a1f;
-            margin-bottom: 0.5rem;
-        }
-
-        .revolut-hint {
-            font-size: 1rem;
-            font-style: italic;
-            color: #a07565;
-            margin-bottom: 1.25rem;
-            line-height: 1.5;
-        }
-
-        .revolut-qr {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 1rem;
-            padding: 0.75rem;
-            background: #fff;
-            border-radius: 12px;
-            border: 1px solid rgba(201, 153, 133, 0.3);
-            display: block;
-        }
-
-        .revolut-link {
-            display: inline-block;
-            background: #7a9b6e;
-            color: #fff;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.05rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            margin-top: 0.25rem;
-        }
-
-        .revolut-link:hover {
-            background: #6a8b5e;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(122, 155, 110, 0.3);
-        }
-
-        .or-divider {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            max-width: 620px;
-            width: 100%;
-            margin: 0.75rem 0 1.5rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #90674D;
-        }
-
-        .or-divider::before,
-        .or-divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: rgba(201, 153, 133, 0.4);
-        }
-
         .currency-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -441,25 +352,6 @@
            data-es="Selecciona la moneda que prefieras. Todas las transferencias van a la misma cuenta de Revolut a nombre de Carolina, que recibe USD, GBP, EUR y CHF. Por favor incluye tu nombre como referencia para que podamos agradecerte personalmente.">
         </p>
     </div>
-
-    <div class="revolut-card">
-        <div class="revolut-eyebrow" data-en="Quick option" data-es="Opción rápida">Opción rápida</div>
-        <h2 class="revolut-title" data-en="Send via Revolut" data-es="Enviar por Revolut">Enviar por Revolut</h2>
-        <p class="revolut-hint"
-           data-en="Scan the QR code with your phone or tap the button below — works in any currency, no bank details needed."
-           data-es="Escanea el código QR con tu móvil o pulsa el botón — funciona en cualquier moneda, sin necesidad de datos bancarios.">
-        </p>
-        <img class="revolut-qr" src="revolut-qr.svg" alt="Revolut payment QR code">
-        <div>
-            <a class="revolut-link" href="https://revolut.me/caroli03xb" target="_blank" rel="noopener"
-               data-en="Open revolut.me/caroli03xb"
-               data-es="Abrir revolut.me/caroli03xb">
-                Abrir revolut.me/caroli03xb
-            </a>
-        </div>
-    </div>
-
-    <div class="or-divider" data-en="Or transfer by bank" data-es="O transferir por banco">O transferir por banco</div>
 
     <div class="currency-tabs" role="tablist">
         <button class="currency-tab active" data-currency="eur" role="tab">
