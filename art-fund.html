@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Fund — Carolina & Harry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background-color: #F9F0E1;
             color: #4a3528;
@@ -15,33 +16,380 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
+            padding: 3rem 1.5rem 4rem;
         }
+
+        .lang-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: #5a4030;
+            opacity: 0.75;
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+            font-size: inherit;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle button:hover,
+        .lang-toggle button.active {
+            color: #4a3528;
+            border-bottom-color: #C99985;
+        }
+        .lang-toggle button.active { font-weight: 500; }
+
         .ornament {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #C99985;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.3em;
-        }
-        h1 {
-            font-size: 2.4rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.4em;
             margin-bottom: 1rem;
+            margin-top: 1rem;
         }
-        p {
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-align: center;
+            color: #2e3a1f;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
             font-size: 1.2rem;
             font-weight: 300;
             font-style: italic;
-            color: #7a5c48;
-            max-width: 420px;
-            line-height: 1.7;
+            color: #a07565;
+            text-align: center;
+            max-width: 560px;
+            line-height: 1.6;
             margin-bottom: 2.5rem;
         }
-        a {
+
+        .intro {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            max-width: 620px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.08);
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: #5a4030;
+            line-height: 1.7;
+        }
+
+        .revolut-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            max-width: 620px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.1);
+            border: 1px solid rgba(201, 153, 133, 0.25);
+        }
+
+        .revolut-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #90674D;
+            margin-bottom: 0.5rem;
+        }
+
+        .revolut-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #2e3a1f;
+            margin-bottom: 0.5rem;
+        }
+
+        .revolut-hint {
+            font-size: 1rem;
+            font-style: italic;
+            color: #a07565;
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .revolut-qr {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1rem;
+            padding: 0.75rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 153, 133, 0.3);
+            display: block;
+        }
+
+        .revolut-link {
+            display: inline-block;
+            background: #7a9b6e;
+            color: #fff;
             font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 0.25rem;
+        }
+
+        .revolut-link:hover {
+            background: #6a8b5e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(122, 155, 110, 0.3);
+        }
+
+        .or-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 620px;
+            width: 100%;
+            margin: 0.75rem 0 1.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #90674D;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(201, 153, 133, 0.4);
+        }
+
+        .currency-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            max-width: 620px;
+            width: 100%;
+        }
+
+        .currency-tab {
+            flex: 1 1 130px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(201, 153, 133, 0.3);
+            color: #4a3528;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            padding: 0.85rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .currency-tab .flag {
+            font-size: 1.15rem;
+            margin-right: 0.45rem;
+        }
+
+        .currency-tab:hover {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: #C99985;
+        }
+
+        .currency-tab.active {
+            background: #7a9b6e;
+            border-color: #7a9b6e;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(122, 155, 110, 0.3);
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            padding: 2rem 2rem 1.5rem;
+            max-width: 620px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.1);
+            display: none;
+        }
+
+        .panel.active { display: block; }
+
+        .panel-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #2e3a1f;
+            text-align: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .panel-hint {
+            text-align: center;
+            font-size: 1rem;
+            font-style: italic;
+            color: #a07565;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-divider {
+            margin: 1.75rem 0 1.25rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #90674D;
+            position: relative;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 25%;
+            height: 1px;
+            background: rgba(201, 153, 133, 0.4);
+        }
+        .section-divider::before { left: 0; }
+        .section-divider::after { right: 0; }
+
+        .field {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(201, 153, 133, 0.2);
+        }
+
+        .field:last-child { border-bottom: none; }
+
+        .field-info { flex: 1; min-width: 0; }
+
+        .field-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #90674D;
+            margin-bottom: 0.25rem;
+        }
+
+        .field-value {
+            font-size: 1.1rem;
+            color: #4a3528;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+
+        .field-value.mono {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.05em;
+            font-size: 1.05rem;
+        }
+
+        .copy-btn {
+            flex-shrink: 0;
+            background: rgba(201, 153, 133, 0.15);
+            border: 1px solid rgba(201, 153, 133, 0.4);
+            color: #90674D;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 70px;
+        }
+
+        .copy-btn:hover {
+            background: #C99985;
+            color: #fff;
+            border-color: #C99985;
+        }
+
+        .copy-btn.copied {
+            background: #7a9b6e;
+            color: #fff;
+            border-color: #7a9b6e;
+        }
+
+        .reference-note {
+            background: rgba(201, 153, 133, 0.12);
+            border-left: 3px solid #C99985;
+            padding: 0.85rem 1rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+            font-size: 0.98rem;
+            font-style: italic;
+            color: #5a4030;
+            line-height: 1.5;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: #7a5c48;
+            text-align: center;
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        .contact-note {
+            margin-top: 1.25rem;
+            font-size: 1rem;
+            color: #5a4030;
+            text-align: center;
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .contact-note a {
+            color: #90674D;
+            text-decoration: none;
+            border-bottom: 1px solid #C99985;
+            padding-bottom: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-note a:hover { color: #C99985; }
+
+        .back-links {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 2rem;
+        }
+
+        .back-link {
             font-size: 1rem;
             font-weight: 500;
             letter-spacing: 0.12em;
@@ -49,14 +397,427 @@
             text-decoration: none;
             border-bottom: 1px solid #C99985;
             padding-bottom: 2px;
+            transition: color 0.3s ease;
         }
-        a:hover { color: #C99985; }
+        .back-link:hover { color: #C99985; }
+
+        @media (max-width: 600px) {
+            body { padding: 4rem 1rem 3rem; }
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.05rem; }
+            .intro { padding: 1.25rem 1.25rem; }
+            .intro p { font-size: 1rem; }
+            .panel { padding: 1.5rem 1.25rem 1rem; }
+            .panel-title { font-size: 1.35rem; }
+            .field { flex-direction: column; gap: 0.5rem; }
+            .copy-btn { align-self: flex-end; }
+            .field-value { font-size: 1rem; }
+            .field-value.mono { font-size: 0.95rem; }
+            .currency-tab { flex: 1 1 calc(50% - 0.5rem); font-size: 0.95rem; padding: 0.7rem 0.5rem; }
+            .section-divider::before,
+            .section-divider::after { width: 15%; }
+        }
     </style>
 </head>
 <body>
+
+    <div class="lang-toggle">
+        <button data-lang="en">English</button>
+        <span>/</span>
+        <button class="active" data-lang="es">Español</button>
+    </div>
+
     <div class="ornament">✦ ✦ ✦</div>
-    <h1>Art Fund</h1>
-    <p>We're still putting this together — check back soon!</p>
-    <a href="index.html">← Back to the wedding site</a>
+
+    <h1 data-en="Art Fund" data-es="Fondo de Arte">Fondo de Arte</h1>
+    <p class="subtitle"
+       data-en="Thank you for considering a contribution to our art fund."
+       data-es="Gracias por considerar una contribución a nuestro fondo de arte.">
+        Gracias por considerar una contribución a nuestro fondo de arte.
+    </p>
+
+    <div class="intro">
+        <p data-en="Select the currency that works best for you. All transfers go to the same Revolut account held by Carolina, which receives USD, GBP, EUR and CHF. Please include your name as the transfer reference so we can thank you personally."
+           data-es="Selecciona la moneda que prefieras. Todas las transferencias van a la misma cuenta de Revolut a nombre de Carolina, que recibe USD, GBP, EUR y CHF. Por favor incluye tu nombre como referencia para que podamos agradecerte personalmente.">
+        </p>
+    </div>
+
+    <div class="revolut-card">
+        <div class="revolut-eyebrow" data-en="Quick option" data-es="Opción rápida">Opción rápida</div>
+        <h2 class="revolut-title" data-en="Send via Revolut" data-es="Enviar por Revolut">Enviar por Revolut</h2>
+        <p class="revolut-hint"
+           data-en="Scan the QR code with your phone or tap the button below — works in any currency, no bank details needed."
+           data-es="Escanea el código QR con tu móvil o pulsa el botón — funciona en cualquier moneda, sin necesidad de datos bancarios.">
+        </p>
+        <img class="revolut-qr" src="revolut-qr.svg" alt="Revolut payment QR code">
+        <div>
+            <a class="revolut-link" href="https://revolut.me/caroli03xb" target="_blank" rel="noopener"
+               data-en="Open revolut.me/caroli03xb"
+               data-es="Abrir revolut.me/caroli03xb">
+                Abrir revolut.me/caroli03xb
+            </a>
+        </div>
+    </div>
+
+    <div class="or-divider" data-en="Or transfer by bank" data-es="O transferir por banco">O transferir por banco</div>
+
+    <div class="currency-tabs" role="tablist">
+        <button class="currency-tab active" data-currency="eur" role="tab">
+            <span class="flag">🇪🇺</span><span>EUR</span>
+        </button>
+        <button class="currency-tab" data-currency="gbp" role="tab">
+            <span class="flag">🇬🇧</span><span>GBP</span>
+        </button>
+        <button class="currency-tab" data-currency="usd" role="tab">
+            <span class="flag">🇺🇸</span><span>USD</span>
+        </button>
+        <button class="currency-tab" data-currency="chf" role="tab">
+            <span class="flag">🇨🇭</span><span>CHF</span>
+        </button>
+    </div>
+
+    <!-- EUR -->
+    <div class="panel active" id="panel-eur">
+        <h2 class="panel-title" data-en="Euro (EUR)" data-es="Euro (EUR)">Euro (EUR)</h2>
+        <p class="panel-hint"
+           data-en="International SWIFT transfer"
+           data-es="Transferencia SWIFT internacional">
+        </p>
+
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Beneficiary" data-es="Beneficiario">Beneficiario</div>
+                <div class="field-value">Carolina Ferreira Atuesta</div>
+            </div>
+            <button class="copy-btn" data-copy="Carolina Ferreira Atuesta" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account" data-es="Cuenta">Cuenta</div>
+                <div class="field-value mono">215911201246</div>
+            </div>
+            <button class="copy-btn" data-copy="215911201246" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label">BIC / SWIFT</div>
+                <div class="field-value mono">REVOUS31</div>
+            </div>
+            <button class="copy-btn" data-copy="REVOUS31" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bank address" data-es="Dirección del banco">Dirección del banco</div>
+                <div class="field-value">Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States</div>
+            </div>
+            <button class="copy-btn" data-copy="Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+
+        <div class="reference-note"
+             data-en="Please include your name as the reference so we know who to thank."
+             data-es="Por favor incluye tu nombre como referencia para saber a quién agradecer.">
+        </div>
+    </div>
+
+    <!-- GBP -->
+    <div class="panel" id="panel-gbp">
+        <h2 class="panel-title" data-en="British Pound (GBP)" data-es="Libra Esterlina (GBP)">Libra Esterlina (GBP)</h2>
+        <p class="panel-hint"
+           data-en="If you're in the UK, use the local transfer below — it's free and instant. If you're sending from outside the UK, use the international SWIFT option."
+           data-es="Si estás en el Reino Unido, usa la transferencia local — es gratis e inmediata. Si envías desde fuera del Reino Unido, usa la opción SWIFT internacional.">
+        </p>
+
+        <div class="section-divider" data-en="UK Local Transfer" data-es="Transferencia Local UK">UK Local Transfer</div>
+
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Beneficiary" data-es="Beneficiario">Beneficiario</div>
+                <div class="field-value">Carolina Ferreira Atuesta</div>
+            </div>
+            <button class="copy-btn" data-copy="Carolina Ferreira Atuesta" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Sort code" data-es="Sort code">Sort code</div>
+                <div class="field-value mono">04-00-75</div>
+            </div>
+            <button class="copy-btn" data-copy="04-00-75" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account number" data-es="Número de cuenta">Número de cuenta</div>
+                <div class="field-value mono">42044596</div>
+            </div>
+            <button class="copy-btn" data-copy="42044596" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bank address" data-es="Dirección del banco">Dirección del banco</div>
+                <div class="field-value">Revolut Ltd, 30 South Colonnade, E14 5HX, London, United Kingdom</div>
+            </div>
+            <button class="copy-btn" data-copy="Revolut Ltd, 30 South Colonnade, E14 5HX, London, United Kingdom" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+
+        <div class="section-divider" data-en="International (SWIFT)" data-es="Internacional (SWIFT)">International (SWIFT)</div>
+
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Beneficiary" data-es="Beneficiario">Beneficiario</div>
+                <div class="field-value">Carolina Ferreira Atuesta</div>
+            </div>
+            <button class="copy-btn" data-copy="Carolina Ferreira Atuesta" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account" data-es="Cuenta">Cuenta</div>
+                <div class="field-value mono">215911201246</div>
+            </div>
+            <button class="copy-btn" data-copy="215911201246" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label">BIC / SWIFT</div>
+                <div class="field-value mono">REVOUS31</div>
+            </div>
+            <button class="copy-btn" data-copy="REVOUS31" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bank address" data-es="Dirección del banco">Dirección del banco</div>
+                <div class="field-value">Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States</div>
+            </div>
+            <button class="copy-btn" data-copy="Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+
+        <div class="reference-note"
+             data-en="Please include your name as the reference so we know who to thank."
+             data-es="Por favor incluye tu nombre como referencia para saber a quién agradecer.">
+        </div>
+    </div>
+
+    <!-- USD -->
+    <div class="panel" id="panel-usd">
+        <h2 class="panel-title" data-en="US Dollar (USD)" data-es="Dólar Estadounidense (USD)">Dólar Estadounidense (USD)</h2>
+        <p class="panel-hint"
+           data-en="If you're in the US, use ACH or domestic wire below. If you're sending from outside the US, use the international SWIFT option."
+           data-es="Si estás en EE.UU., usa ACH o wire doméstico. Si envías desde fuera de EE.UU., usa la opción SWIFT internacional.">
+        </p>
+
+        <div class="section-divider" data-en="US Domestic (ACH / Wire)" data-es="Doméstico EE.UU. (ACH / Wire)">US Domestic (ACH / Wire)</div>
+
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Beneficiary" data-es="Beneficiario">Beneficiario</div>
+                <div class="field-value">Carolina Ferreira Atuesta</div>
+            </div>
+            <button class="copy-btn" data-copy="Carolina Ferreira Atuesta" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account number" data-es="Número de cuenta">Número de cuenta</div>
+                <div class="field-value mono">215911201246</div>
+            </div>
+            <button class="copy-btn" data-copy="215911201246" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="ACH routing number" data-es="ACH routing number">ACH routing number</div>
+                <div class="field-value mono">101019644</div>
+            </div>
+            <button class="copy-btn" data-copy="101019644" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Wire routing number" data-es="Wire routing number">Wire routing number</div>
+                <div class="field-value mono">101019644</div>
+            </div>
+            <button class="copy-btn" data-copy="101019644" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bank name and address" data-es="Banco y dirección">Banco y dirección</div>
+                <div class="field-value">Lead Bank, 1801 Main Street, Kansas City, MO 64108, United States</div>
+            </div>
+            <button class="copy-btn" data-copy="Lead Bank, 1801 Main Street, Kansas City, MO 64108, United States" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+
+        <div class="section-divider" data-en="International (SWIFT)" data-es="Internacional (SWIFT)">International (SWIFT)</div>
+
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Beneficiary" data-es="Beneficiario">Beneficiario</div>
+                <div class="field-value">Carolina Ferreira Atuesta</div>
+            </div>
+            <button class="copy-btn" data-copy="Carolina Ferreira Atuesta" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account" data-es="Cuenta">Cuenta</div>
+                <div class="field-value mono">215911201246</div>
+            </div>
+            <button class="copy-btn" data-copy="215911201246" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label">BIC / SWIFT</div>
+                <div class="field-value mono">REVOUS31</div>
+            </div>
+            <button class="copy-btn" data-copy="REVOUS31" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Wire routing number" data-es="Wire routing number">Wire routing number</div>
+                <div class="field-value mono">101019644</div>
+            </div>
+            <button class="copy-btn" data-copy="101019644" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bank address" data-es="Dirección del banco">Dirección del banco</div>
+                <div class="field-value">Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States</div>
+            </div>
+            <button class="copy-btn" data-copy="Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+
+        <div class="reference-note"
+             data-en="Please include your name as the reference so we know who to thank."
+             data-es="Por favor incluye tu nombre como referencia para saber a quién agradecer.">
+        </div>
+    </div>
+
+    <!-- CHF -->
+    <div class="panel" id="panel-chf">
+        <h2 class="panel-title" data-en="Swiss Franc (CHF)" data-es="Franco Suizo (CHF)">Franco Suizo (CHF)</h2>
+        <p class="panel-hint"
+           data-en="International SWIFT transfer"
+           data-es="Transferencia SWIFT internacional">
+        </p>
+
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Beneficiary" data-es="Beneficiario">Beneficiario</div>
+                <div class="field-value">Carolina Ferreira Atuesta</div>
+            </div>
+            <button class="copy-btn" data-copy="Carolina Ferreira Atuesta" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account" data-es="Cuenta">Cuenta</div>
+                <div class="field-value mono">215911201246</div>
+            </div>
+            <button class="copy-btn" data-copy="215911201246" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label">BIC / SWIFT</div>
+                <div class="field-value mono">REVOUS31</div>
+            </div>
+            <button class="copy-btn" data-copy="REVOUS31" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bank address" data-es="Dirección del banco">Dirección del banco</div>
+                <div class="field-value">Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States</div>
+            </div>
+            <button class="copy-btn" data-copy="Revolut Technologies Inc, 107 Greenwich Street, Floor 20, New York, NY 10006, United States" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+
+        <div class="reference-note"
+             data-en="Please include your name as the reference so we know who to thank."
+             data-es="Por favor incluye tu nombre como referencia para saber a quién agradecer.">
+        </div>
+    </div>
+
+    <p class="footer-note"
+       data-en="With all our love and gratitude — thank you for being part of our day."
+       data-es="Con todo nuestro cariño y gratitud — gracias por ser parte de nuestro día.">
+    </p>
+
+    <p class="contact-note"
+       data-en='Questions or want to send us a message? Write to us at <a href="mailto:caroharrywedding@gmail.com">caroharrywedding@gmail.com</a>.'
+       data-es='¿Tienes alguna duda o quieres enviarnos un mensaje? Escríbenos a <a href="mailto:caroharrywedding@gmail.com">caroharrywedding@gmail.com</a>.'>
+    </p>
+
+    <div class="back-links">
+        <a href="index.html" class="back-link"
+           data-en="← Back to the wedding site"
+           data-es="← Volver al sitio de la boda">
+            ← Volver al sitio de la boda
+        </a>
+        <a href="weekend/index.html" class="back-link"
+           data-en="← Back to the weekend"
+           data-es="← Volver al fin de semana">
+            ← Volver al fin de semana
+        </a>
+    </div>
+
+    <script>
+        // Language toggle (matches main site behaviour)
+        function setLanguage(lang, updateUrl = false) {
+            document.querySelectorAll('.lang-toggle button').forEach(b => {
+                b.classList.toggle('active', b.dataset.lang === lang);
+            });
+            document.querySelectorAll('[data-en]').forEach(el => {
+                if (el.dataset[lang] !== undefined) {
+                    el.innerHTML = el.dataset[lang];
+                }
+            });
+            document.documentElement.lang = lang;
+            if (updateUrl) {
+                const url = new URL(window.location);
+                if (lang === 'en') url.searchParams.set('en', '');
+                else url.searchParams.delete('en');
+                window.history.replaceState({}, '', url);
+            }
+        }
+
+        if (window.location.search.includes('en')) {
+            setLanguage('en');
+        } else {
+            setLanguage('es');
+        }
+
+        document.querySelectorAll('.lang-toggle button').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang, true));
+        });
+
+        // Currency tabs
+        document.querySelectorAll('.currency-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const currency = tab.dataset.currency;
+                document.querySelectorAll('.currency-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('panel-' + currency).classList.add('active');
+            });
+        });
+
+        // Copy-to-clipboard
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const text = btn.dataset.copy;
+                try {
+                    await navigator.clipboard.writeText(text);
+                } catch (e) {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    try { document.execCommand('copy'); } catch (err) {}
+                    document.body.removeChild(ta);
+                }
+                const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+                const original = lang === 'en' ? 'Copy' : 'Copiar';
+                btn.textContent = lang === 'en' ? 'Copied ✓' : 'Copiado ✓';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.classList.remove('copied');
+                }, 1600);
+            });
+        });
+    </script>
 </body>
 </html>

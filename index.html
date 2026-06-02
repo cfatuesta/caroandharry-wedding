@@ -580,6 +580,110 @@
             }
         }
 
+        /* Weekend Section */
+        .weekend-section {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .weekend-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #2e3a1f;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .weekend-section .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #a07565;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 560px;
+        }
+        .weekend-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 720px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.1);
+        }
+        .weekend-days {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+        .weekend-day {
+            padding: 1.25rem 0.75rem;
+            border-radius: 12px;
+            background: rgba(249, 240, 225, 0.55);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .weekend-day-highlight {
+            background: rgba(201, 153, 133, 0.18);
+            border: 1px solid rgba(201, 153, 133, 0.4);
+        }
+        .weekend-day-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #90674D;
+            font-weight: 500;
+        }
+        .weekend-day-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #7a5c48;
+        }
+        .weekend-day-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: #2e3a1f;
+            font-weight: 500;
+            margin-top: 0.3rem;
+        }
+        .weekend-blurb {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #5a4030;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .weekend-btn {
+            display: inline-block;
+            background-color: #7a9b6e;
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .weekend-btn:hover {
+            background-color: #6a8b5e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(122, 155, 110, 0.3);
+        }
+        @media (max-width: 600px) {
+            .weekend-section h2 { font-size: 2.2rem; }
+            .weekend-card { padding: 1.75rem 1.25rem; margin: 0 1rem; }
+            .weekend-days { grid-template-columns: 1fr; gap: 0.75rem; }
+            .weekend-day { padding: 1rem; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+            .weekend-day-title { margin-top: 0; flex: 1 1 100%; }
+        }
+
         /* Location Section */
         .location-section h2 {
             font-family: 'Cormorant Garamond', serif;
@@ -1911,6 +2015,45 @@
         </div>
     </section>
 
+    <!-- Weekend Section -->
+    <section class="section weekend-section" id="weekend">
+        <h2 data-en="The Weekend" data-es="El Fin de Semana">El Fin de Semana</h2>
+        <p class="section-subtitle"
+           data-en="More than one day — three days of celebrating together"
+           data-es="Más que un día — tres días para celebrar juntos">
+            Más que un día — tres días para celebrar juntos
+        </p>
+
+        <div class="weekend-card">
+            <div class="weekend-days">
+                <div class="weekend-day">
+                    <span class="weekend-day-label" data-en="Friday" data-es="Viernes">Viernes</span>
+                    <span class="weekend-day-date" data-en="October 16th" data-es="16 de octubre">16 de octubre</span>
+                    <span class="weekend-day-title" data-en="Pre-Wedding Cocktail" data-es="Cóctel Pre-Boda">Cóctel Pre-Boda</span>
+                </div>
+                <div class="weekend-day">
+                    <span class="weekend-day-label" data-en="Saturday" data-es="Sábado">Sábado</span>
+                    <span class="weekend-day-date" data-en="October 17th" data-es="17 de octubre">17 de octubre</span>
+                    <span class="weekend-day-title" data-en="Free Day" data-es="Día Libre">Día Libre</span>
+                </div>
+                <div class="weekend-day weekend-day-highlight">
+                    <span class="weekend-day-label" data-en="Sunday" data-es="Domingo">Domingo</span>
+                    <span class="weekend-day-date" data-en="October 18th" data-es="18 de octubre">18 de octubre</span>
+                    <span class="weekend-day-title" data-en="The Wedding" data-es="La Boda">La Boda</span>
+                </div>
+            </div>
+            <p class="weekend-blurb"
+               data-en="The party isn't only on Sunday — join us for the full weekend in Madrid."
+               data-es="La celebración no es solo el domingo — acompáñanos durante todo el fin de semana en Madrid.">
+            </p>
+            <a href="weekend/index.html" class="weekend-btn"
+               data-en="View Weekend Plans →"
+               data-es="Ver el Fin de Semana →">
+                Ver el Fin de Semana →
+            </a>
+        </div>
+    </section>
+
     <!-- Dress Code Section -->
     <section class="section dresscode-section" id="dresscode">
         <h2 data-en="Dress Code" data-es="Código de Vestimenta">Dress Code</h2>
@@ -2751,6 +2894,7 @@
         (function() {
             const sections = [
                 { id: 'timeline',     en: 'Schedule',      es: 'Programa' },
+                { id: 'weekend',      en: 'Weekend',       es: 'Fin de Semana' },
                 { id: 'dresscode',    en: 'Dress Code',    es: 'Dress Code' },
                 { id: 'location',     en: 'Getting There', es: 'Cómo Llegar' },
                 { id: 'weather',      en: 'Weather',       es: 'Clima' },
