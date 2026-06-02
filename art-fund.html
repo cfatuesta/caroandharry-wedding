@@ -164,6 +164,18 @@
             margin-bottom: 1.5rem;
         }
 
+        .breb-qr {
+            display: block;
+            margin: 0 auto 1.5rem;
+            width: 220px;
+            height: 220px;
+            padding: 0.85rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 153, 133, 0.3);
+            box-shadow: 0 4px 12px rgba(144, 103, 77, 0.08);
+        }
+
         .section-divider {
             margin: 1.75rem 0 1.25rem;
             text-align: center;
@@ -365,6 +377,9 @@
         </button>
         <button class="currency-tab" data-currency="chf" role="tab">
             <span class="flag">🇨🇭</span><span>CHF</span>
+        </button>
+        <button class="currency-tab" data-currency="cop" role="tab">
+            <span class="flag">🇨🇴</span><span>COP</span>
         </button>
     </div>
 
@@ -617,6 +632,58 @@
         <div class="reference-note"
              data-en="Please include your name as the reference so we know who to thank."
              data-es="Por favor incluye tu nombre como referencia para saber a quién agradecer.">
+        </div>
+    </div>
+
+    <!-- COP (Colombia only) -->
+    <div class="panel" id="panel-cop">
+        <h2 class="panel-title" data-en="Colombian Peso (COP)" data-es="Peso Colombiano (COP)">Peso Colombiano (COP)</h2>
+        <p class="panel-hint"
+           data-en="For transfers from within Colombia only. Pay with Bre-B (any Colombian bank or wallet) by scanning the QR or using the llave below."
+           data-es="Solo para transferencias dentro de Colombia. Paga con Bre-B (desde cualquier banco o billetera colombiana) escaneando el QR o usando la llave de abajo.">
+        </p>
+
+        <img class="breb-qr" src="breb-qr.png" alt="Bre-B QR — Carolina Ferreira Atuesta">
+
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Beneficiary" data-es="Beneficiario">Beneficiario</div>
+                <div class="field-value">Carolina Ferreira Atuesta</div>
+            </div>
+            <button class="copy-btn" data-copy="Carolina Ferreira Atuesta" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bre-B key (llave)" data-es="Llave Bre-B">Llave Bre-B</div>
+                <div class="field-value mono">3158998009</div>
+            </div>
+            <button class="copy-btn" data-copy="3158998009" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Bank" data-es="Banco">Banco</div>
+                <div class="field-value">Davivienda</div>
+            </div>
+            <button class="copy-btn" data-copy="Davivienda" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account type" data-es="Tipo de cuenta">Tipo de cuenta</div>
+                <div class="field-value" data-en="Savings (Cuenta de Ahorros)" data-es="Cuenta de Ahorros">Cuenta de Ahorros</div>
+            </div>
+            <button class="copy-btn" data-copy="Cuenta de Ahorros" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+        <div class="field">
+            <div class="field-info">
+                <div class="field-label" data-en="Account number" data-es="Número de cuenta">Número de cuenta</div>
+                <div class="field-value mono">3158998009</div>
+            </div>
+            <button class="copy-btn" data-copy="3158998009" data-en="Copy" data-es="Copiar">Copiar</button>
+        </div>
+
+        <div class="reference-note"
+             data-en="Please include your name in the transfer description so we know who to thank."
+             data-es="Por favor incluye tu nombre en el detalle de la transferencia para saber a quién agradecer.">
         </div>
     </div>
 
