@@ -402,6 +402,187 @@
             }
         }
 
+        /* SALONS SECTION */
+        .salons-section {
+            padding: 5rem 2rem;
+        }
+
+        .salons-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #2e3a1f;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .salons-section .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #a07565;
+            margin-bottom: 1rem;
+            text-align: center;
+            max-width: 620px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .salons-note {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.98rem;
+            color: #5a4030;
+            text-align: center;
+            max-width: 620px;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+            opacity: 0.85;
+        }
+
+        .salons-map-wrap {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 2.5rem;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(144, 103, 77, 0.15);
+            border: 1px solid rgba(201, 153, 133, 0.35);
+        }
+
+        .salons-map-wrap iframe {
+            display: block;
+            width: 100%;
+            height: 360px;
+            border: 0;
+        }
+
+        .zones-wrap {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .zone-block .zone-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #a07565;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(201, 153, 133, 0.35);
+        }
+
+        .salons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .salon-card {
+            background: rgba(255, 255, 255, 0.78);
+            border-radius: 12px;
+            padding: 1.2rem 1.3rem;
+            box-shadow: 0 3px 14px rgba(144, 103, 77, 0.08);
+            border-left: 3px solid #C99985;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .salon-card .salon-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.8rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .salon-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2e3a1f;
+            line-height: 1.2;
+            flex: 1;
+        }
+
+        .salon-card .salon-rating {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: #a07565;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .salon-card .salon-tag {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #7a9b6e;
+            background: rgba(122, 155, 110, 0.12);
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            align-self: flex-start;
+        }
+
+        .salon-card .salon-tag.men {
+            color: #6b7f9b;
+            background: rgba(107, 127, 155, 0.12);
+        }
+
+        .salon-card .salon-hours {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.98rem;
+            color: #4a3528;
+        }
+
+        .salon-card .salon-hours strong {
+            color: #2e3a1f;
+            font-weight: 600;
+        }
+
+        .salon-card .salon-addr {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: #5a4030;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .salon-card .salon-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .salon-card .salon-action {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.92rem;
+            color: #a07565;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(201, 153, 133, 0.5);
+            padding-bottom: 0.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .salon-card .salon-action:hover {
+            color: #4a3528;
+            border-bottom-color: #4a3528;
+        }
+
+        @media (max-width: 720px) {
+            .salons-grid { grid-template-columns: 1fr; }
+            .salons-map-wrap iframe { height: 280px; }
+        }
+
         /* KIDS SECTION */
         .kids-section {
             padding: 5rem 2rem;
@@ -621,6 +802,10 @@
             .weekend-section .section-subtitle { font-size: 1.05rem; margin-bottom: 2rem; }
             .day-card h3 { font-size: 1.5rem; }
             .day-card { padding: 1.6rem 1.3rem 1.5rem; }
+            .salons-section h2 { font-size: 2.2rem; }
+            .salons-section .section-subtitle { font-size: 1.05rem; }
+            .salons-note { font-size: 0.92rem; }
+            .salon-card h4 { font-size: 1.15rem; }
             .kids-card { padding: 2rem 1.5rem; }
             .kids-card h2 { font-size: 1.8rem; }
             .closing-section p { font-size: 1.15rem; }
@@ -758,6 +943,249 @@
                     📍 <span data-en="Google Maps" data-es="Google Maps">Google Maps</span>
                 </a>
             </div>
+        </div>
+    </section>
+
+    <!-- HAIR & BEAUTY (SUNDAY) -->
+    <section class="section salons-section" id="salons">
+        <h2 data-en="Hair &amp; Beauty · Open Sunday" data-es="Peluquerías Abiertas en Domingo">Peluquerías Abiertas en Domingo</h2>
+        <p class="section-subtitle"
+           data-en="Sunday is the wedding day — here are salons open in the guest-hotel areas"
+           data-es="El domingo es el día de la boda — te dejamos peluquerías abiertas cerca de los hoteles">
+           El domingo es el día de la boda — te dejamos peluquerías abiertas cerca de los hoteles
+        </p>
+        <p class="salons-note"
+           data-en="Please call ahead — Sunday hours often require an appointment."
+           data-es="Se recomienda llamar antes: los domingos suelen requerir cita previa.">
+           Se recomienda llamar antes: los domingos suelen requerir cita previa.
+        </p>
+
+        <div class="salons-map-wrap">
+            <iframe
+                src="https://www.google.com/maps?q=peluquerias+abiertas+domingo+barrio+de+salamanca+madrid&hl=es&z=14&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+                title="Peluquerías Madrid — Sunday"></iframe>
+        </div>
+
+        <div class="zones-wrap">
+            <!-- MILLA DE ORO -->
+            <div class="zone-block">
+                <div class="zone-title" data-en="Milla de Oro · Salamanca" data-es="Milla de Oro · Salamanca">Milla de Oro · Salamanca</div>
+                <div class="salons-grid">
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>My Beauty Golden</h4>
+                            <span class="salon-rating">★ 4.8</span>
+                        </div>
+                        <span class="salon-tag" data-en="Unisex" data-es="Unisex">Unisex</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 10:00 – 19:00" data-es="Dom 10:00 – 19:00">Dom 10:00 – 19:00</strong>
+                        </p>
+                        <p class="salon-addr">Av. de Menéndez Pelayo, 4</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34654778718">+34 654 77 87 18</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=My+Beauty+Golden+Av.+Men%C3%A9ndez+Pelayo+4+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>MA BELLE Salón</h4>
+                            <span class="salon-rating">★ 4.5</span>
+                        </div>
+                        <span class="salon-tag" data-en="Unisex" data-es="Unisex">Unisex</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 10:00 – 20:30" data-es="Dom 10:00 – 20:30">Dom 10:00 – 20:30</strong>
+                        </p>
+                        <p class="salon-addr">C. de José Ortega y Gasset, 50, Bajo E</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34910255815">+34 910 25 58 15</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=MA+BELLE+Salon+Ortega+y+Gasset+50+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>Ma Belle Clínica Estética</h4>
+                            <span class="salon-rating">★ 4.8</span>
+                        </div>
+                        <span class="salon-tag" data-en="Beauty / Aesthetics" data-es="Estética">Estética</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 10:00 – 20:30" data-es="Dom 10:00 – 20:30">Dom 10:00 – 20:30</strong>
+                        </p>
+                        <p class="salon-addr">C. de José Ortega y Gasset, 50, Bajo D</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34910255815">+34 910 25 58 15</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=Ma+Belle+Cl%C3%ADnica+Est%C3%A9tica+Ortega+y+Gasset+50+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>Muro Serrano 47 <span style="font-weight:400;font-style:italic;color:#a07565;font-size:0.9rem;">(El Corte Inglés)</span></h4>
+                            <span class="salon-rating">★ 5.0</span>
+                        </div>
+                        <span class="salon-tag" data-en="Unisex" data-es="Unisex">Unisex</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 11:00 – 21:00" data-es="Dom 11:00 – 21:00">Dom 11:00 – 21:00</strong>
+                        </p>
+                        <p class="salon-addr">El Corte Inglés · C. de Serrano, 47, Planta 1</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34682766406">+34 682 76 64 06</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=Muro+Serrano+47+El+Corte+Ingl%C3%A9s+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- GENOVA / IGLESIA -->
+            <div class="zone-block">
+                <div class="zone-title" data-en="Génova / Metro Iglesia · Chamberí" data-es="Génova / Metro Iglesia · Chamberí">Génova / Metro Iglesia · Chamberí</div>
+                <div class="salons-grid">
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>Jean Louis David</h4>
+                            <span class="salon-rating">★ 4.7</span>
+                        </div>
+                        <span class="salon-tag" data-en="Unisex" data-es="Unisex">Unisex</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 10:00 – 19:00" data-es="Dom 10:00 – 19:00">Dom 10:00 – 19:00</strong>
+                        </p>
+                        <p class="salon-addr">Calle de Sta Engracia, 133 · <span data-en="next to Iglesia metro" data-es="junto al metro Iglesia">junto al metro Iglesia</span></p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34914413403">+34 914 41 34 03</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=Jean+Louis+David+Santa+Engracia+133+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>Toni Barber Men</h4>
+                            <span class="salon-rating">★ 4.9</span>
+                        </div>
+                        <span class="salon-tag men" data-en="Men only" data-es="Solo hombres">Solo hombres</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 12:30 – 20:30" data-es="Dom 12:30 – 20:30">Dom 12:30 – 20:30</strong>
+                        </p>
+                        <p class="salon-addr">C. de Gravina, 15 · <span data-en="Chueca/Colón area" data-es="zona Chueca/Colón">zona Chueca/Colón</span></p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34915215576">+34 915 21 55 76</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=Toni+Barber+Men+Gravina+15+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CONDE DE PENALVER -->
+            <div class="zone-block">
+                <div class="zone-title" data-en="Conde de Peñalver · Salamanca / Guindalera" data-es="Conde de Peñalver · Salamanca / Guindalera">Conde de Peñalver · Salamanca / Guindalera</div>
+                <div class="salons-grid">
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>CARCHE Peluquería y Estética</h4>
+                            <span class="salon-rating">★ 4.1</span>
+                        </div>
+                        <span class="salon-tag" data-en="Unisex · Spa" data-es="Unisex · Spa">Unisex · Spa</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 11:00 – 20:00" data-es="Dom 11:00 – 20:00">Dom 11:00 – 20:00</strong>
+                        </p>
+                        <p class="salon-addr">C. del Conde de Peñalver, 29</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34673554775">+34 673 55 47 75</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=CARCHE+Peluquer%C3%ADa+Conde+de+Pe%C3%B1alver+29+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>Peluquería de Caballero Barbershop</h4>
+                            <span class="salon-rating">★ 4.8</span>
+                        </div>
+                        <span class="salon-tag men" data-en="Men only" data-es="Solo hombres">Solo hombres</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 10:00 – 20:30" data-es="Dom 10:00 – 20:30">Dom 10:00 – 20:30</strong>
+                        </p>
+                        <p class="salon-addr">C. del Conde de Peñalver, 50</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34655338503">+34 655 33 85 03</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=Peluquer%C3%ADa+de+Caballero+Barbershop+Conde+de+Pe%C3%B1alver+50+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RETIRO -->
+            <div class="zone-block">
+                <div class="zone-title" data-en="Retiro" data-es="Retiro">Retiro</div>
+                <div class="salons-grid">
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>Old Style Barber</h4>
+                            <span class="salon-rating">★ 4.8</span>
+                        </div>
+                        <span class="salon-tag men" data-en="Men only" data-es="Solo hombres">Solo hombres</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 10:00 – 16:00" data-es="Dom 10:00 – 16:00">Dom 10:00 – 16:00</strong>
+                        </p>
+                        <p class="salon-addr">C. de Máiquez, 58</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34912328029">+34 912 32 80 29</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=Old+Style+Barber+M%C3%A1iquez+58+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHUECA -->
+            <div class="zone-block">
+                <div class="zone-title" data-en="Chueca · Centro" data-es="Chueca · Centro">Chueca · Centro</div>
+                <div class="salons-grid">
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>Splash Madrid</h4>
+                            <span class="salon-rating">★ 4.5</span>
+                        </div>
+                        <span class="salon-tag" data-en="Unisex" data-es="Unisex">Unisex</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 10:00 – 20:00" data-es="Dom 10:00 – 20:00">Dom 10:00 – 20:00</strong>
+                        </p>
+                        <p class="salon-addr">C. de Hortaleza, 15 · <span data-en="near Gran Vía" data-es="cerca de Gran Vía">cerca de Gran Vía</span></p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34910621134">+34 910 62 11 34</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=Splash+Madrid+Hortaleza+15" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                    <div class="salon-card">
+                        <div class="salon-head">
+                            <h4>BARBELOGIA</h4>
+                            <span class="salon-rating">★ 4.9</span>
+                        </div>
+                        <span class="salon-tag men" data-en="Men only" data-es="Solo hombres">Solo hombres</span>
+                        <p class="salon-hours">
+                            <strong data-en="Sun 12:00 – 20:00" data-es="Dom 12:00 – 20:00">Dom 12:00 – 20:00</strong>
+                        </p>
+                        <p class="salon-addr">C. de San Marcos, 18</p>
+                        <div class="salon-actions">
+                            <a class="salon-action" href="tel:+34919362469">+34 919 36 24 69</a>
+                            <a class="salon-action" href="https://www.google.com/maps/search/?api=1&query=BARBELOGIA+San+Marcos+18+Madrid" target="_blank" rel="noopener" data-en="Map" data-es="Mapa">Mapa</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
