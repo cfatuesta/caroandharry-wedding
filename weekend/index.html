@@ -394,6 +394,22 @@
             font-weight: 500;
         }
 
+        /* Bus rows — lighter, boxed background to set them apart from the main events */
+        .mini-timeline-row--bus {
+            background: rgba(201, 153, 133, 0.09);
+            border-left: 2px solid rgba(201, 153, 133, 0.45);
+            border-radius: 4px;
+            padding: 0.3rem 0.55rem;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .mini-timeline-row--bus .mt-time,
+        .mini-timeline-row--bus .mt-name {
+            color: #8a6b5c;
+            font-weight: 500;
+        }
+
         @media (max-width: 900px) {
             .days-grid {
                 grid-template-columns: 1fr;
@@ -912,7 +928,7 @@
                    Descubre Madrid a tu ritmo.
                 </p>
 
-                <p class="day-meta">
+                <p class="day-meta" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed rgba(201, 153, 133, 0.5);">
                     <strong data-en="Morning Run · El Retiro park" data-es="Morning Run · Parque de El Retiro">Morning Run · Parque de El Retiro</strong>
                 </p>
                 <p class="day-meta"
@@ -934,9 +950,13 @@
                 <p class="day-venue">Castillo de Batres</p>
 
                 <div class="mini-timeline">
-                    <div class="mini-timeline-row">
+                    <div class="mini-timeline-row mini-timeline-row--bus">
+                        <span class="mt-time">16:00 h</span>
+                        <span class="mt-name" data-en="Meeting at Plaza Colón" data-es="Encuentro en Plaza Colón">Encuentro en Plaza Colón</span>
+                    </div>
+                    <div class="mini-timeline-row mini-timeline-row--bus">
                         <span class="mt-time">16:15 h</span>
-                        <span class="mt-name" data-en="Bus from Plaza Colón (meet 16:00)" data-es="Bus desde Plaza Colón (encuentro 16:00)">Bus desde Plaza Colón (encuentro 16:00)</span>
+                        <span class="mt-name" data-en="Bus departs to Castillo de Batres" data-es="Salida del bus al Castillo de Batres">Salida del bus al Castillo de Batres</span>
                     </div>
                     <div class="mini-timeline-row">
                         <span class="mt-time">17:30 h</span>
@@ -954,11 +974,11 @@
                         <span class="mt-time">22:30 – 02:30</span>
                         <span class="mt-name" data-en="Party" data-es="Fiesta">Fiesta</span>
                     </div>
-                    <div class="mini-timeline-row">
+                    <div class="mini-timeline-row mini-timeline-row--bus">
                         <span class="mt-time">00:00 – 00:30</span>
                         <span class="mt-name" data-en="First bus back to Plaza Colón" data-es="Primer bus de vuelta a Plaza Colón">Primer bus de vuelta a Plaza Colón</span>
                     </div>
-                    <div class="mini-timeline-row">
+                    <div class="mini-timeline-row mini-timeline-row--bus">
                         <span class="mt-time">02:30 h</span>
                         <span class="mt-name" data-en="Last bus back to Plaza Colón" data-es="Último bus de vuelta a Plaza Colón">Último bus de vuelta a Plaza Colón</span>
                     </div>
